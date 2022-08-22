@@ -1,0 +1,52 @@
+
+.homepage{
+    background-color: #000000;
+    min-height: 100vh;
+}
+
+.active-link{
+    text-decoration: none;
+    font-family: 'Steinbeck';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: #C9AC8C;
+}
+.active-link:hover{
+    color: #C9AC8C;
+}
+
+.homepage__nav-link{
+    text-decoration: none;
+    font-family: 'Steinbeck';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.homepage__nav-link:hover{
+    color: #C9AC8C;
+}
+
+
+.homepage__nav-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.homepage__nav-item{
+    margin-right: 40px;
+}
+
+.books{
+    background-color: #000000;
+    min-height: 100vh;
+}

@@ -1,0 +1,60 @@
+.card {
+  max-width: 175px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 15px;
+  border: none;
+}
+.card__link {
+  background-color: #191919;
+  padding: 15px;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 15px;
+  border: none;
+  display: inline-block;
+}
+
+.card__img {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.card__title {
+  font-family: "Steinbeck";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #c9ac8c;
+}
+
+.card__time {
+  font-family: "Steinbeck";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card-book__title {
+  font-family: "Rotterburg Stylish FREE";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  color: #c9ac8c;
+}
+
+.card-book__title {
+  font-family: "Visuelt Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 144.4%;
+  color: rgba(255, 255, 255, 0.6);
+}
