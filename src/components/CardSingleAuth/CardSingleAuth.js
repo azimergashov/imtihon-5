@@ -1,6 +1,5 @@
 import './cardSingleAuth.scss'
 import ijodiLeft from '../../images/ijodi-left.png'
-import otkir from '../../images/otkir.png'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../../hook/useAuth'
 import axios from 'axios'
@@ -27,7 +26,7 @@ export const CardSingleAuth = ({data}) => {
         <div className='card-single-author'>
             <div className='container card-single-author__wrapper'>
                 <div className='card-single-author__left'>
-                    <img className='card-single-author__left-img' src={otkir} alt={data.first_name} width={582} height={780}/>
+                    <img className='card-single-author__left-img' src={`https://book-service-layer.herokuapp.com/${data.image}`} alt={data.first_name} width={582} height={780}/>
 
                    <div className='w-100 '>
                    <div className='card-single-author__left-bottom'>

@@ -1,0 +1,119 @@
+.card-single-author {
+  margin-top: 20px;
+}
+
+.card-single-author__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-single-author__left {
+  margin-right: 80px;
+}
+
+.card-single-author__left-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 280px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.card-single-author__left-bottom-time {
+  font-family: "Rotterburg Stylish FREE";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 39px;
+  line-height: 144.4%;
+  color: #c9ac8c;
+  margin: 0;
+  padding: 0;
+}
+
+.card-single-author__left-bottom-text {
+  font-family: "Visuelt Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 144.4%;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  padding: 0;
+}
+
+.card-single-author__right-title {
+  font-family: "Rotterburg Stylish FREE";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 53px;
+  color: #c9ac8c;
+}
+
+.card-single-author__right-text {
+  font-family: "Steinbeck";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 144.4%;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card-single-author__right-bottom-text {
+  font-family: "Steinbeck";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 154.9%;
+  color: #ffffff;
+  max-width: 361px;
+  padding-left: 30px;
+}
+
+.card-single-author__right-ijodi {
+  font-family: "Rotterburg Stylish FREE";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: #c9ac8c;
+}
+
+.card-single-author__right-asarlari {
+  font-family: "Rotterburg Stylish FREE";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 31px;
+  line-height: 34px;
+  color: #c9ac8c;
+  margin-bottom: 10px;
+}
+
+.card-single-author__right-asarlari-wrapper {
+  overflow-y: scroll;
+  max-height: 350px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.list li {
+  margin-right: 20px;
+}
+/*# sourceMappingURL=cardSingleAuth.css.map */

@@ -1,0 +1,41 @@
+.hero {
+  background-color: #000;
+  padding-top: 55px;
+  padding-bottom: 100px;
+}
+
+.hero__wrapper {
+  background-image: url("../../images/hero-home.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: 346px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.hero__search {
+  width: 80%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #191919;
+  padding: 36px 86px;
+  position: absolute;
+  bottom: -80px;
+  right: 10%;
+  border-radius: 15px;
+}
+
+.hero__form-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=hero.css.map */

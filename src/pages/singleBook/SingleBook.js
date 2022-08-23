@@ -21,10 +21,18 @@ export const SingleBook = () => {
             headers:{
                 Authorization: token,
             },
-        }).then(data => setBook(data)).catch(er => console.log(er))
+        }).then(data => setBook(data.data)).catch(er => console.log(er))
     }, [token, bookId])
-
-console.log(bookId);
+    let genre = 'Tarixiy'
+   if(book.genre_id === 1){
+    genre = "Temuriylar davri"
+   }else if(book.genre_id === 2){
+    genre = "Jadidlar adabiyoti"
+   }else if(book.genre_id === 3){
+    genre = "Soved davri"
+   }else if(book.genre_id === 4){
+    genre = "Mustaqillik davri"
+   }
   return (
     <>
       <div className="single-book">
@@ -32,25 +40,25 @@ console.log(bookId);
         <Outlet />
         <div className="container">
           <div className="single-book__top">
-            <img className="single-book__top-img" src={SingleImg} alt="single-book" width={520} height={810}/>
+            <img className="single-book__top-img" src={`https://book-service-layer.herokuapp.com/${book.image}`} alt="single-book" width={520} height={810}/>
 
             <div className="single-book__top-right">
               <div>
-                <h1 className="single-book__top-right-heading">Qo’rqma</h1>
+                <h1 className="single-book__top-right-heading">{book.title}</h1>
                 <p className="single-book__top-right-heading-bottom single--bottom">Javlon Jovliyev <span className="text-light align-items-center ps-2">| <img className="mb-1 ms-2 me-1" src={iconStar} alt="star-book" width={12} height={12} />    4.1</span></p>
 
                 <ul className="list-unstyled">
                   <li className="single-book__top-item">
                     Sahifalar soni:
-                    <span className="single-book__top-item-span">376</span>
+                    <span className="single-book__top-item-span">{book.page}</span>
                   </li>
                   <li className="single-book__top-item">
                     Chop etilgan:
-                    <span className="single-book__top-item-span">2021</span>
+                    <span className="single-book__top-item-span">{book.year}</span>
                   </li>
                   <li className="single-book__top-item">
                     Janri:
-                    <span className="single-book__top-item-span">Tarixiy</span>
+                    <span className="single-book__top-item-span">{genre}</span>
                   </li>
                   <li className="single-book__top-item">
                     Nashriyot
@@ -67,7 +75,7 @@ console.log(bookId);
 
               </div>
               <p className="single-book__top-right-text">
-
+                    {book.description}
                 </p>
 
                 <h4 className="single-book__top-right-heading-bottom mt-5">Mavjud formatlar</h4>
@@ -79,7 +87,7 @@ console.log(bookId);
                             <img src={qogozKitob} alt="img" width={24} height={24} />
                             </div>
                             <p className="single-book__top-right-text-bottom text-light">Qog’oz kitob</p>
-                            <p className="single-book__top-right-text-bottom m-0 p-0">27 000 so’m</p>
+                            <p className="single-book__top-right-text-bottom m-0 p-0 text-center">{book.price} $</p>
                         </li>
 
                         <li className="ms-3 ">

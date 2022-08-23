@@ -1,5 +1,4 @@
 
-import Hamid from "../../images/hamid.jpg";
 import iconStar from "../../images/icon-star.png"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hook/useAuth";
@@ -29,7 +28,7 @@ export const CardBook = ({e}) =>{
     return(
         <>
             <li className="card-book" onClick={singleBook}>
-                <img className="card-book__img" src={Hamid} alt="" width={164} height={246}/>
+                <img className="card-book__img" src={`https://book-service-layer.herokuapp.com/${e.image}`} alt="" width={164} height={246}/>
 
                 <h1 className="card-book__title m-0 p-0 mb-2 mt-3 ms-2" >{e.title}</h1>
 

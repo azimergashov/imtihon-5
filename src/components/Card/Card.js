@@ -1,6 +1,5 @@
 import "./card.scss";
 import {  Outlet } from "react-router-dom";
-import Hamid from "../../images/hamid.jpg";
 import {useNavigate} from 'react-router-dom'
 import { useAuth } from "../../hook/useAuth";
 
@@ -23,8 +22,8 @@ export const Card = ({ e }) => {
         <div className="card__link" >
           <img
             className="card__img"
-            src={Hamid}
-            alt='author_img'
+            src={`https://book-service-layer.herokuapp.com/${e.image}`}
+            alt=""
             width={174}
             height={132}
 
