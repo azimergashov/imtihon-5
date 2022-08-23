@@ -14,9 +14,12 @@ export const JadidBook = () =>{
                 Authorization: token,
             },
         }).then(data => setData(data.data)).catch(er => console.log(er))
-    }, [])
 
-    console.log(data);
+
+    }, [token])
+
+
+
 
     return(
         <>

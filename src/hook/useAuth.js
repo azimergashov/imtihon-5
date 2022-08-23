@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export const useAuth = () =>{
-    const {token, setToken, authorId, setAuthorId} = useContext(AuthContext)
+    const {token, setToken, authorId, setAuthorId, bookId, setBookId} = useContext(AuthContext)
 
-    return {token, setToken, authorId, setAuthorId}
+    return {token, setToken, authorId, setAuthorId, bookId, setBookId}
 
 }

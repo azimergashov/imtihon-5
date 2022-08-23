@@ -30,6 +30,10 @@
 
 }
 
+.header__nav-link:hover{
+    color: #FFFFFF;
+}
+
 .header__select{
 
     max-width: 30px;
@@ -45,4 +49,8 @@
 
 .active--link{
     border-bottom: solid 1px #FFFFFFFF;
+}
+
+.active--link:hover{
+    color: #FFFFFF;
 }

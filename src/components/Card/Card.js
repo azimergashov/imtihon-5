@@ -1,5 +1,5 @@
 import "./card.scss";
-import { Link, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import Hamid from "../../images/hamid.jpg";
 import {useNavigate} from 'react-router-dom'
 import { useAuth } from "../../hook/useAuth";
@@ -9,7 +9,7 @@ export const Card = ({ e }) => {
     const {setAuthorId} = useAuth()
     const navigate = useNavigate()
     const singleAuthor =() =>{
-        navigate("/single-author")
+        navigate("/single-auth")
         setAuthorId(e.id)
 
     }
@@ -24,9 +24,12 @@ export const Card = ({ e }) => {
           <img
             className="card__img"
             src={Hamid}
-            alt={e.first_name}
+            alt='author_img'
             width={174}
             height={132}
+
+
+
           />
           <div className="text-center pb-4 pt-3">
             <h1 className="card__title">
@@ -44,3 +47,5 @@ export const Card = ({ e }) => {
     </>
   );
 };
+
+// `https://book-service-layer.herokuapp.com/${e?.image}`

@@ -1,4 +1,4 @@
-import { NavLink, Link, Outlet} from "react-router-dom";
+import { NavLink, Link,} from "react-router-dom";
 import "./header.scss";
 import HeaderLogo from "../../images/header-logo.png";
 import SelectImg from "../../images/select-img.png";

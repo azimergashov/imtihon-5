@@ -15,9 +15,8 @@ export const MustBook = () =>{
                 Authorization: token,
             },
         }).then(data => setData(data.data)).catch(er => console.log(er))
-    }, [])
+    }, [token])
 
-    console.log(data);
 
     return(
         <>

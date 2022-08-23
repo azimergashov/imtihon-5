@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRef } from "react";
-import { useAuth } from "../hook/useAuth";
+import { useAuth } from "../../hook/useAuth";
 
 export const Register = () => {
   const { setToken } = useAuth();

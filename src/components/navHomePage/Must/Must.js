@@ -16,7 +16,7 @@ export const Must = () =>{
             },
         }).then(data => setData(data.data)).catch(er => console.log(er))
 
-    }, [])
+    }, [token])
 
     return(
         <>
@@ -24,7 +24,7 @@ export const Must = () =>{
             <h1>Mustaqillik</h1>
             {
                 data.length &&
-                <ul>
+                <ul className='d-flex justify-content-between flex-wrap  list-unstyled'>
                     {
                         data.map((e) => (
                             <Card e={e} key={e.id}/>

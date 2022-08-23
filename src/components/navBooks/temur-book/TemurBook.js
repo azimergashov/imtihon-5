@@ -14,7 +14,9 @@ export const TemurBook = () =>{
                 Authorization: token,
             },
         }).then(data => setData(data.data)).catch(er => console.log(er))
-    }, [])
+    }, [token])
+
+
 
 
     return(
@@ -28,6 +30,7 @@ export const TemurBook = () =>{
                     {
                         data.map((e) => (
                             <CardBook e={e} key={e.id}/>
+
                         ))
                     }
                 </ul>
