@@ -5,5 +5,9 @@ import { Jadid } from "./navHomePage";
 import { Soved } from "./navHomePage";
 import { Must } from "./navHomePage";
 import { CardSingleAuth } from "./CardSingleAuth";
+import { SingleBookCenterOne } from "./SingleBookCenter";
+import { SingleBookCenterTwo } from "./SingleBookCenter";
+import { SingleBookCenterThree } from "./SingleBookCenter";
+import { SingleBookNav } from "./SingleBookCenter";
 
-export {Header, Hero, Temur, Jadid, Soved, Must, CardSingleAuth }
+export {Header, Hero, Temur, Jadid, Soved, Must, CardSingleAuth, SingleBookCenterOne, SingleBookCenterTwo, SingleBookCenterThree, SingleBookNav }

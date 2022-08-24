@@ -1,8 +1,6 @@
-import { Outlet } from "react-router-dom";
-import { Header } from "../../components";
+
 import "./singleBook.scss";
 import iconStar from "../../images/icon-star.png"
-import SingleImg from '../../images/single-book.png'
 import electronKitob from '../../images/elektron-kitob.png'
 import qogozKitob from '../../images/qogoz-kitob.png'
 import audioKitob from '../../images/audio-kitob.png'
@@ -12,9 +10,13 @@ import axios from "axios";
 
 
 
+
+
 export const SingleBook = () => {
-    const {bookId, token} = useAuth()
+    const {bookId, token, } = useAuth()
     const [book, setBook ] = useState([])
+
+
 
     useEffect(() =>{
         axios.get(`https://book-service-layer.herokuapp.com/book/bookId/${bookId}`, {
@@ -22,7 +24,10 @@ export const SingleBook = () => {
                 Authorization: token,
             },
         }).then(data => setBook(data.data)).catch(er => console.log(er))
+
     }, [token, bookId])
+
+
     let genre = 'Tarixiy'
    if(book.genre_id === 1){
     genre = "Temuriylar davri"
@@ -35,11 +40,7 @@ export const SingleBook = () => {
    }
   return (
     <>
-      <div className="single-book">
-        <Header />
-        <Outlet />
-        <div className="container">
-          <div className="single-book__top">
+      <div className="single-book__top">
             <img className="single-book__top-img" src={`https://book-service-layer.herokuapp.com/${book.image}`} alt="single-book" width={520} height={810}/>
 
             <div className="single-book__top-right">
@@ -114,9 +115,7 @@ export const SingleBook = () => {
             </div>
 
           </div>
-          single book
-        </div>
-      </div>
+
     </>
   );
 };

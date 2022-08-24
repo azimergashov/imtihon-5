@@ -5,12 +5,13 @@ import { useAuth } from "../../hook/useAuth";
 
 export const CardBook = ({e}) =>{
 
-    const {setBookId} = useAuth()
+    const {setBookId, setIdAuthor} = useAuth()
 
     const navigatee = useNavigate()
     const singleBook = () => {
         navigatee("/single-book")
         setBookId(e.id)
+        setIdAuthor(e.author_id)
     }
 
 

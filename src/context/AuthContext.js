@@ -6,11 +6,19 @@ export const AuthProvayder = ({children}) =>{
     const localData =JSON.parse(window.localStorage.getItem("token"))
     const localAuthorId = JSON.parse(window.localStorage.getItem("authorId"))
     const localBookId = JSON.parse(window.localStorage.getItem("bookId"))
+    const localIdAuthor = JSON.parse(window.localStorage.getItem('idAuthor'))
     const [token, setToken] = useState(localData || '')
     const [authorId, setAuthorId] = useState(localAuthorId || "")
     const [bookId, setBookId] = useState(localBookId || '')
-
-
+    const [idAuthor, setIdAuthor] = useState(localIdAuthor || '')
+    console.log(idAuthor);
+    useEffect(()=>{
+        if(idAuthor) {
+            localStorage.setItem('idAuthor', JSON.stringify(idAuthor))
+        }else {
+            localStorage.removeItem('idAuthor')
+        }
+    },[idAuthor])
 
     useEffect(()=>{
         if(bookId) {
@@ -36,7 +44,7 @@ export const AuthProvayder = ({children}) =>{
         }
     },[token])
     return(
-       <AuthContext.Provider value={{token, setToken, authorId, setAuthorId, bookId, setBookId}}>
+       <AuthContext.Provider value={{token, setToken, authorId, setAuthorId, bookId, setBookId, idAuthor, setAuthorId}}>
             {children}
        </AuthContext.Provider>
     )

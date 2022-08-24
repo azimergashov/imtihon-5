@@ -1,13 +1,13 @@
 // import { Home } from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
-import { Header, Jadid, Must, Soved, Temur } from "./components";
+import { Header, Jadid, Must,  Soved, Temur } from "./components";
 import { Books } from "./pages/Books";
 // import { Login } from "./pages/Login";
 // import { Register } from "./pages/Register";
 import { SingleAuthor } from "./pages/singleAuthor/SingleAuthor";
 import { JadidBook, MustBook, SovedBook, TemurBook } from "./components/navBooks";
-import { SingleBook } from "./pages/singleBook/SingleBook";
+import { SingleBookPage } from "./pages/singleBook/SingleBookPage";
 
 function App() {
   return (
@@ -16,7 +16,9 @@ function App() {
 
       <Routes>
         <Route path="/single-auth" element={<SingleAuthor />} />
-        <Route path="/single-book" element={<SingleBook/>}/>
+        <Route path="/single-book/*" element={<SingleBookPage/>}/>
+
+
         <Route>
           <Route path="/books/" element={<Books />}>
             <Route path="/books/" element={<TemurBook/>}/>
