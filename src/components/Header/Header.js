@@ -2,12 +2,39 @@ import { NavLink, Link,} from "react-router-dom";
 import "./header.scss";
 import HeaderLogo from "../../images/header-logo.png";
 import SelectImg from "../../images/select-img.png";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
+  const [menu, setMenu] = useState(false)
+
+  const menuOpen = () =>{
+    setMenu(!menu)
+  }
+
+  useEffect(() => {
+    const closeMenu = (evt) =>{
+      console.log(evt);
+        if(evt.code === "Escape"){
+          setMenu(false)
+        }
+    }
+
+    if(menu){
+      window.addEventListener("keyup", closeMenu)
+    }
+
+    return () => window.removeEventListener("keyup", closeMenu)
+  }, [menu])
+
+
+
+
+
+
   return (
     <>
       <header className="header">
-        <div className=" container d-flex align-items-center justify-content-between">
+        <div className=" container d-flex align-items-center justify-content-between position-relative">
           <Link to="/" className="header__logo">
             <img src={HeaderLogo} alt="header-logo" width={96} height={26} />
           </Link>
@@ -58,12 +85,26 @@ export const Header = () => {
                 width={48}
                 height={48}
               />
-              <select className="header__select">
+
+              <button className="header__select" onClick={menuOpen}>∨</button>
+              {/* <select className="header__select">
                 <option defaultValue></option>
                 <option value="">My account</option>
                 <option value="">Security</option>
                 <option value="">Settings</option>
-              </select>
+              </select> */}
+              <div onClick={menuOpen} className={menu ? "header__select-bg " : "header__select-bg d-none"} ></div>
+
+              <div className={menu ? "header__select-div" : "header__select-div d-none"}>
+                <div className="header__select-menu"><p className="ps-2 pt-3 fs-5 ">Menu</p>
+                <button onClick={menuOpen} className="header__select-close bg-danger">&times;</button>
+                </div>
+                <ul className="list-unstyled m-0 p-0">
+                  <li className="header__select-item">My profile</li>
+                  <li className="header__select-item">Security</li>
+                  <li className="header__select-item">Settings</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

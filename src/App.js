@@ -5,9 +5,9 @@ import { Header, Jadid, Must,  Soved, Temur } from "./components";
 import { Books } from "./pages/Books";
 // import { Login } from "./pages/Login";
 // import { Register } from "./pages/Register";
-import { SingleAuthor } from "./pages/singleAuthor/SingleAuthor";
 import { JadidBook, MustBook, SovedBook, TemurBook } from "./components/navBooks";
-import { SingleBookPage } from "./pages/singleBook/SingleBookPage";
+import { SingleAuthor, SingleBookPage } from "./pages";
+import { Profile, Security, Settings } from "./pages/settingsPages";
 
 function App() {
   return (
@@ -17,6 +17,9 @@ function App() {
       <Routes>
         <Route path="/single-auth" element={<SingleAuthor />} />
         <Route path="/single-book/*" element={<SingleBookPage/>}/>
+        <Route path="/profile" element={<Profile/>} />
+        <Route path="/security" element={<Security/>} />
+        <Route path="/settings" element={<Settings/>} />
 
 
         <Route>
