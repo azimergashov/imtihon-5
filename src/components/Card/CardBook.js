@@ -2,10 +2,14 @@
 import iconStar from "../../images/icon-star.png"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hook/useAuth";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import CardBookImg from '../../images/otkir.png'
 
 export const CardBook = ({e}) =>{
 
-    const {setBookId, setIdAuthor} = useAuth()
+    const {setBookId, setIdAuthor, token} = useAuth()
+    const [data, setData]= useState([])
 
     const navigatee = useNavigate()
     const singleBook = () => {
@@ -15,21 +19,51 @@ export const CardBook = ({e}) =>{
     }
 
 
-    let authorTitle = " "
+    let authorTitle = `${data?.first_name}-${data?.last_name}`
 
-    if(e.author_id === 1){
-       authorTitle = "Hamid Olimjon "
-    }else if(e.author_id === 2){
-        authorTitle ="O'tkir Hoshimov"
-    }else{
-        authorTitle = "Kimdur"
-    }
+    useEffect(() => {
+        axios.get(`https://book-service-layer.herokuapp.com/author/authorId/${e.author_id}`, {
+            headers: {
+                Authorization: token,
+            }
+        }).then(data => setData(data.data)).catch(er => console.log(er))
+    }, [token, e])
+
+    // if(e.author_id === 1){
+    //     authorTitle = "Hamid Olimjon "
+    //  }else if(e.author_id === 2){
+    //      authorTitle ="O'tkir Hoshimov"
+    //  }else if(e.author_id === 3){
+    //      authorTitle = "Abdulhamid Cho'lpon"
+    //  }else if(e.author_id === 4){
+    //      authorTitle = "Robin Sharma"
+    //  }else if(e.author_id === 5){
+    //      authorTitle = "Zulfiya Isroilova"
+    //  }else if(e.author_id === 6){
+    //      authorTitle = "Zulfiya Isroilova"
+    //  }else if(e.author_id === 7){
+    //      authorTitle = "Abdulla  Qodiriy"
+    //  }else if(e.author_id === 8){
+    //      authorTitle = "Kimdur"
+    //  }else if(e.author_id === 9){
+    //      authorTitle = "Kimdur"
+    //  }else if(e.author_id === 10){
+    //      authorTitle = "Kimdur"
+    //  }else if(e.author_id === 11){
+    //      authorTitle = "Kimdur"
+    //  }else if(e.author_id === 12){
+    //      authorTitle = "Kimdur"
+    //  }else {
+    //      authorTitle = "Kimdur"
+    //  }
 
 
     return(
         <>
             <li className="card-book" onClick={singleBook}>
-                <img className="card-book__img" src={`https://book-service-layer.herokuapp.com/${e.image}`} alt="" width={164} height={246}/>
+                <img className="card-book__img" src={
+              `https://book-service-layer.herokuapp.com/${e?.image}`!== undefined ? `https://book-service-layer.herokuapp.com/${e?.image}`: CardBookImg
+            } alt="" width={164} height={246}/>
 
                 <h1 className="card-book__title m-0 p-0 mb-2 mt-3 ms-2" >{e.title}</h1>
 

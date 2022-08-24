@@ -6,7 +6,7 @@ export const SingleBookNav = () =>{
         <>
          <ul className="d-flex align-align-items-center list-unstyled mb-5">
               <li className="single-book-center__item">
-                <NavLink to='single-book-one' className={({isActive}) => isActive ? 'single-book-center__item-link-active ' : 'single-book-center__item-link '}>
+                <NavLink to=' ' className={({isActive}) => isActive ? 'single-book-center__item-link-active ' : 'single-book-center__item-link single-book--link-active'}>
                     About author
                 </NavLink>
               </li>

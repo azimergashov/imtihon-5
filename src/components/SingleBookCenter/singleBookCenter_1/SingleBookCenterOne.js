@@ -16,9 +16,6 @@ export const SingleBookCenterOne = () =>{
         }).then(data => setData(data.data)).catch(er => console.log(er))
     }, [token, idAuthor])
 
-    console.log(data);
-    console.log(data);
-
     return(
         <>
             <div className='single-book-center'>

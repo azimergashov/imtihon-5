@@ -1,6 +1,7 @@
 .single-book {
   background-color: #000000;
   min-height: 100vh;
+  height: 100%;
 }
 
 .single-book__top {
@@ -97,4 +98,12 @@
   background-color: #c9ac8c;
   border-radius: 0px;
   padding: 16px 32px;
+}
+.single-book-bottom__heading{
+  font-family: 'Steinbeck';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 25px;
+  color: #C9AC8C;
 }

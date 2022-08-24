@@ -7,6 +7,7 @@ import audioKitob from '../../images/audio-kitob.png'
 import { useAuth } from "../../hook/useAuth";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SingleBookImg from '../../images/single-book.png'
 
 
 
@@ -15,6 +16,7 @@ import axios from "axios";
 export const SingleBook = () => {
     const {bookId, token, } = useAuth()
     const [book, setBook ] = useState([])
+    const [data, setData] = useState([])
 
 
 
@@ -26,6 +28,14 @@ export const SingleBook = () => {
         }).then(data => setBook(data.data)).catch(er => console.log(er))
 
     }, [token, bookId])
+
+    useEffect(() => {
+      axios.get(`https://book-service-layer.herokuapp.com/author/authorId/${book?.author_id}`, {
+          headers: {
+              Authorization: token,
+          }
+      }).then(data => setData(data.data)).catch(er => console.log(er))
+  }, [token, book.author_id])
 
 
     let genre = 'Tarixiy'
@@ -41,12 +51,14 @@ export const SingleBook = () => {
   return (
     <>
       <div className="single-book__top">
-            <img className="single-book__top-img" src={`https://book-service-layer.herokuapp.com/${book.image}`} alt="single-book" width={520} height={810}/>
+            <img className="single-book__top-img" src={
+              `https://book-service-layer.herokuapp.com/${book?.image}`!== undefined ? `https://book-service-layer.herokuapp.com/${book?.image}`: SingleBookImg
+            } alt="single-book" width={520} height={810}/>
 
             <div className="single-book__top-right">
               <div>
                 <h1 className="single-book__top-right-heading">{book.title}</h1>
-                <p className="single-book__top-right-heading-bottom single--bottom">Javlon Jovliyev <span className="text-light align-items-center ps-2">| <img className="mb-1 ms-2 me-1" src={iconStar} alt="star-book" width={12} height={12} />    4.1</span></p>
+                <p className="single-book__top-right-heading-bottom single--bottom">{data.first_name}-{data.last_name} <span className="text-light align-items-center ps-2">| <img className="mb-1 ms-2 me-1" src={iconStar} alt="star-book" width={12} height={12} />    4.1</span></p>
 
                 <ul className="list-unstyled">
                   <li className="single-book__top-item">
