@@ -1,0 +1,28 @@
+.profile__header{
+    padding-bottom: 21px;
+    padding-top: 20px;
+}
+
+
+.profile__item-link{
+    text-decoration: none;
+    padding: 23px 23px;
+    background-color: #F3F6F9;
+    border-right: solid 3px #E5E5E5;
+}
+
+.profile__item-link-active{
+    text-decoration: none;
+    background-color: #FFFFFF;
+    padding: 23px 23px;
+    border-right: solid 3px #E5E5E5;
+}
+.profile__item-span{
+    background-color: #E5EAEE;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.profile__item-link-active span{
+    background-color: #152540 !important;
+}

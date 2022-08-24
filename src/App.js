@@ -1,16 +1,18 @@
 // import { Home } from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
-import { Header, Jadid, Must,  Soved, Temur } from "./components";
+import { Header, Jadid, Must,  ProfileSecurity,  ProfileSettings,  SecuritySecurity,  SecuritySettings,  SettingsSecurity,  SettingsSettings,  Soved, Temur } from "./components";
 import { Books } from "./pages/Books";
 // import { Login } from "./pages/Login";
 // import { Register } from "./pages/Register";
 import { JadidBook, MustBook, SovedBook, TemurBook } from "./components/navBooks";
-import { Profile } from "./pages/settingsPages/Profile";
+import { Profile, ProfilePage } from "./pages/settingsPages/Profile";
 import { Security } from "./pages/settingsPages/Security/Security";
 import { Settings } from "./pages/settingsPages/Settings/Settings";
 import { SingleBookPage } from "./pages/singleBook";
 import { SingleAuthor } from "./pages/singleAuthor/SingleAuthor";
+import { SecurityPage } from "./pages/settingsPages/Security/SecurityPage";
+import { SettingsPage } from "./pages/settingsPages/Settings/SettingsPage";
 
 
 
@@ -23,9 +25,21 @@ function App() {
       <Routes>
         <Route path="/single-auth" element={<SingleAuthor />} />
         <Route path="/single-book/*" element={<SingleBookPage/>}/>
-        <Route path="/profile" element={<Profile/>} />
-        <Route path="/security" element={<Security/>} />
-        <Route path="/settings" element={<Settings/>} />
+        <Route path="/profile/" element={<Profile/>} >
+          <Route path="/profile/" element={<ProfilePage/>}/>
+          <Route path="/profile/security" element={<ProfileSecurity/>}/>
+          <Route path="/profile/settings" element={<ProfileSettings/>}/>
+        </Route>
+        <Route path="/security/" element={<Security/>} >
+          <Route path="/security/" element={<SecurityPage/>}/>
+          <Route path="/security/security" element={<SecuritySecurity/>}/>
+          <Route path="/security/settings" element={<SecuritySettings/>}/>
+        </Route>
+        <Route path="/settings" element={<Settings/>} >
+          <Route path="/settings/" element={<SettingsPage/>}/>
+          <Route path="/settings/security" element={<SettingsSecurity/>}/>
+          <Route path="/settings/settings" element={<SettingsSettings/>}/>
+        </Route>
 
 
         <Route>

@@ -9,5 +9,14 @@ import { SingleBookCenterOne } from "./SingleBookCenter";
 import { SingleBookCenterTwo } from "./SingleBookCenter";
 import { SingleBookCenterThree } from "./SingleBookCenter";
 import { SingleBookNav } from "./SingleBookCenter";
+import { ProfileHeader } from "./settingsHeader";
+import { SettingsHeader } from "./settingsHeader";
+import { SecurityHeader } from "./settingsHeader";
+import { ProfileSecurity } from "./settingsHeader";
+import { ProfileSettings } from "./settingsHeader";
+import { SecuritySecurity } from "./settingsHeader";
+import { SecuritySettings } from "./settingsHeader";
+import { SettingsSecurity } from "./settingsHeader";
+import { SettingsSettings } from "./settingsHeader";
 
-export {Header, Hero, Temur, Jadid, Soved, Must, CardSingleAuth, SingleBookCenterOne, SingleBookCenterTwo, SingleBookCenterThree, SingleBookNav }
+export {Header, Hero, Temur, Jadid, Soved, Must, CardSingleAuth, SingleBookCenterOne, SingleBookCenterTwo, SingleBookCenterThree, SingleBookNav, ProfileHeader, SecurityHeader, SettingsHeader, ProfileSecurity, ProfileSettings, SecuritySecurity, SecuritySettings, SettingsSecurity, SettingsSettings }

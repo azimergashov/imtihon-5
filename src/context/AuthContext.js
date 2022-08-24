@@ -11,7 +11,7 @@ export const AuthProvayder = ({children}) =>{
     const [authorId, setAuthorId] = useState(localAuthorId || "")
     const [bookId, setBookId] = useState(localBookId || '')
     const [idAuthor, setIdAuthor] = useState(localIdAuthor || '')
-    console.log(idAuthor);
+
     useEffect(()=>{
         if(idAuthor) {
             localStorage.setItem('idAuthor', JSON.stringify(idAuthor))

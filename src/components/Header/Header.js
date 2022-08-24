@@ -1,4 +1,4 @@
-import { NavLink, Link,} from "react-router-dom";
+import { NavLink, Link, useNavigate,} from "react-router-dom";
 import "./header.scss";
 import HeaderLogo from "../../images/header-logo.png";
 import SelectImg from "../../images/select-img.png";
@@ -9,6 +9,20 @@ export const Header = () => {
 
   const menuOpen = () =>{
     setMenu(!menu)
+  }
+
+  const navigate = useNavigate()
+
+  const profileOpen = () =>{
+    navigate("/profile")
+  }
+
+  const securityOpen = () =>{
+    navigate("/security")
+  }
+
+  const settingsOpen = () =>{
+    navigate("/settings")
   }
 
   useEffect(() => {
@@ -100,9 +114,9 @@ export const Header = () => {
                 <button onClick={menuOpen} className="header__select-close bg-danger">&times;</button>
                 </div>
                 <ul className="list-unstyled m-0 p-0">
-                  <li className="header__select-item">My profile</li>
-                  <li className="header__select-item">Security</li>
-                  <li className="header__select-item">Settings</li>
+                  <li onClick={profileOpen} className="header__select-item">My profile</li>
+                  <li onClick={securityOpen} className="header__select-item">Security</li>
+                  <li onClick={settingsOpen} className="header__select-item">Settings</li>
                 </ul>
               </div>
             </div>
