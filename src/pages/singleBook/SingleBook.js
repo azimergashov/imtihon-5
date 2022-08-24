@@ -52,7 +52,7 @@ export const SingleBook = () => {
     <>
       <div className="single-book__top">
             <img className="single-book__top-img" src={
-              `https://book-service-layer.herokuapp.com/${book?.image}`!== undefined ? `https://book-service-layer.herokuapp.com/${book?.image}`: SingleBookImg
+              `https://book-service-layer.herokuapp.com/${book?.image}` !== undefined ? `https://book-service-layer.herokuapp.com/${book?.image}`: SingleBookImg
             } alt="single-book" width={520} height={810}/>
 
             <div className="single-book__top-right">
