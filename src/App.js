@@ -6,8 +6,14 @@ import { Books } from "./pages/Books";
 // import { Login } from "./pages/Login";
 // import { Register } from "./pages/Register";
 import { JadidBook, MustBook, SovedBook, TemurBook } from "./components/navBooks";
-import { SingleAuthor, SingleBookPage } from "./pages";
-import { Profile, Security, Settings } from "./pages/settingsPages";
+import { Profile } from "./pages/settingsPages/Profile";
+import { Security } from "./pages/settingsPages/Security/Security";
+import { Settings } from "./pages/settingsPages/Settings/Settings";
+import { SingleBookPage } from "./pages/singleBook";
+import { SingleAuthor } from "./pages/singleAuthor/SingleAuthor";
+
+
+
 
 function App() {
   return (
