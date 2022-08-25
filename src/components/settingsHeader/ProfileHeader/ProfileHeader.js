@@ -1,5 +1,5 @@
 
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../settingsHeader.scss'
 
 export  const ProfileHeader = () =>{

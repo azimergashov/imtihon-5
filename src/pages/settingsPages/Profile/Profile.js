@@ -1,7 +1,6 @@
 
 import "./profile.scss";
 import { ProfileHeader } from "../../../components";
-import { ProfilePage } from "./ProfilePage";
 import { Outlet } from "react-router-dom";
 
 
