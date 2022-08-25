@@ -11,9 +11,7 @@ export const Card = ({ e }) => {
     const singleAuthor =() =>{
         navigate("/single-auth")
         setAuthorId(e.id)
-
     }
-
     <Outlet/>
 
   return (
@@ -24,7 +22,7 @@ export const Card = ({ e }) => {
           <img
             className="card__img"
             src={
-              `https://book-service-layer.herokuapp.com/${e?.image}`!== undefined ? `https://book-service-layer.herokuapp.com/${e?.image}`: CardImg
+              e.image === undefined ? CardImg : `https://book-service-layer.herokuapp.com/${e.image}`
             }
             alt=""
             width={174}

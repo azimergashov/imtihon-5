@@ -10,9 +10,13 @@ export const Profile = () => {
     <>
       <div className="profile">
         <div className="container ">
-          <h1 className="m-0 p-0">Profile</h1>
-          <ProfileHeader />
-          <Outlet/>
+          <div className="profile__wrapper">
+            <ProfileHeader />
+
+            <div >
+            <Outlet/>
+            </div>
+          </div>
 
 
         </div>

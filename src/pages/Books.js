@@ -13,7 +13,7 @@ export const Books = () => {
           <div className="homepage__div text-center">
             <img src={Kategoriyalar} alt="kategory" width={322} height={34} />
           </div>
-          <nav className="homepage__nav">
+          <nav className="homepage__nav mb-4">
             <ul className="homepage__nav-list ">
               <li className="homepage__nav-item">
                 <NavLink

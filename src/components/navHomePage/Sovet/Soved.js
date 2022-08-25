@@ -22,7 +22,6 @@ export const Soved = () => {
   return (
     <>
       <div className="container">
-        <h1>soved</h1>
         {data.length && (
           <ul className="d-flex justify-content-between flex-wrap  list-unstyled m-0 p-0">
             {data.map((e) => (

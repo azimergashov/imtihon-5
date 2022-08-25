@@ -3,9 +3,24 @@ import "./header.scss";
 import HeaderLogo from "../../images/header-logo.png";
 import SelectImg from "../../images/select-img.png";
 import { useEffect, useState } from "react";
+import { useAuth } from "../../hook/useAuth";
+import axios from "axios";
+import headerIcon from '../../images/header-icon.png'
 
 export const Header = () => {
   const [menu, setMenu] = useState(false)
+  const {token} = useAuth()
+  const [data, setData] = useState([])
+
+  useEffect(() =>{
+    axios.get('https://book-service-layer.herokuapp.com/user/me', {
+      headers: {
+        Authorization: token,
+      }
+    })
+    .then(data => setData(data.data)).catch(er => console.log(er))
+  },[token])
+
 
   const menuOpen = () =>{
     setMenu(!menu)
@@ -14,15 +29,15 @@ export const Header = () => {
   const navigate = useNavigate()
 
   const profileOpen = () =>{
-    navigate("/profile")
+    navigate("/profile/")
   }
 
   const securityOpen = () =>{
-    navigate("/security")
+    navigate("/profile/security")
   }
 
   const settingsOpen = () =>{
-    navigate("/settings")
+    navigate("/profile/settings")
   }
 
   useEffect(() => {
@@ -39,9 +54,6 @@ export const Header = () => {
 
     return () => window.removeEventListener("keyup", closeMenu)
   }, [menu])
-
-
-
 
 
 
@@ -94,19 +106,13 @@ export const Header = () => {
             <div className="d-flex align-items-center">
               <img
                 className="header__select-img"
-                src={SelectImg}
+                src={ data.image !== null ? `https://book-service-layer.herokuapp.com/${data.image}` : SelectImg }
                 alt=""
                 width={48}
                 height={48}
               />
 
-              <button className="header__select" onClick={menuOpen}>∨</button>
-              {/* <select className="header__select">
-                <option defaultValue></option>
-                <option value="">My account</option>
-                <option value="">Security</option>
-                <option value="">Settings</option>
-              </select> */}
+              <button className="header__select" onClick={menuOpen}><img src={headerIcon} alt="header-icon" width={12} height={7}/></button>
               <div onClick={menuOpen} className={menu ? "header__select-bg " : "header__select-bg d-none"} ></div>
 
               <div className={menu ? "header__select-div" : "header__select-div d-none"}>

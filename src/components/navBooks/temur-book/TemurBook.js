@@ -23,7 +23,6 @@ export const TemurBook = () =>{
         <>
 
             <div className='container'>
-            <h1>Temuriylar</h1>
             {
                 data.length &&
                 <ul className='d-flex justify-content-between flex-wrapp'>

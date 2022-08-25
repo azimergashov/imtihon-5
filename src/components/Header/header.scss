@@ -57,6 +57,13 @@
     padding: 10px 50px;
 }
 
+.header__select-item:hover{
+    background-color: teal;
+    cursor: pointer;
+    // .default {cursor: default;}
+
+}
+
 .header__select-bg{
     background-color: #000000;
     opacity: 75%;
@@ -73,6 +80,10 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: solid 1px #000000;
+}
+
+.header__select-menu p:hover{
+    cursor: default;
 }
 .header__select-close{
     border: none;

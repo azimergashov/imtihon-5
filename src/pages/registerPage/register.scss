@@ -1,0 +1,56 @@
+.register{
+    background-color: #C9AC8C;
+    min-height: 100vh;
+
+
+
+}
+
+.register__left{
+    background-color: #C9AC8C;
+
+
+}
+
+.register__right{
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    text-align: center;
+
+}
+
+.register__img{
+    margin: auto;
+}
+
+.register__heading{
+    font-family: 'Arial Black';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 51px;
+    color: #000000;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register__form input {
+  margin-bottom: 25px;
+}
+
+.register__btn {
+  background-color: #152540;
+  border: none;
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 20px;
+}

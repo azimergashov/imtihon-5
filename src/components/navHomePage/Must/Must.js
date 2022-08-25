@@ -21,7 +21,7 @@ export const Must = () =>{
     return(
         <>
              <div className='container'>
-            <h1>Mustaqillik</h1>
+
             {
                 data.length &&
                 <ul className='d-flex justify-content-between flex-wrap  list-unstyled'>

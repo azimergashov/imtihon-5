@@ -7,11 +7,25 @@ export const AuthProvayder = ({children}) =>{
     const localAuthorId = JSON.parse(window.localStorage.getItem("authorId"))
     const localBookId = JSON.parse(window.localStorage.getItem("bookId"))
     const localIdAuthor = JSON.parse(window.localStorage.getItem('idAuthor'))
+    const localUserImg = JSON.parse(window.localStorage.getItem("userImg"))
+
+
     const [token, setToken] = useState(localData || '')
     const [authorId, setAuthorId] = useState(localAuthorId || "")
     const [bookId, setBookId] = useState(localBookId || '')
     const [idAuthor, setIdAuthor] = useState(localIdAuthor || '')
+    const [userImg, setUserImg] = useState(localUserImg || '')
+    const [theme, setTheme] = useState(false)
+    const [language, setLanguage] = useState('')
 
+
+    useEffect(()=>{
+        if(userImg) {
+            localStorage.setItem('userImg', JSON.stringify(userImg))
+        }else {
+            localStorage.removeItem('userImg')
+        }
+    },[userImg])
     useEffect(()=>{
         if(idAuthor) {
             localStorage.setItem('idAuthor', JSON.stringify(idAuthor))
@@ -44,7 +58,7 @@ export const AuthProvayder = ({children}) =>{
         }
     },[token])
     return(
-       <AuthContext.Provider value={{token, setToken, authorId, setAuthorId, bookId, setBookId, idAuthor, setIdAuthor}}>
+       <AuthContext.Provider value={{token, setToken, authorId, setAuthorId, bookId, setBookId, idAuthor, setIdAuthor, userImg, setUserImg, theme, setTheme, language, setLanguage}}>
             {children}
        </AuthContext.Provider>
     )

@@ -22,7 +22,6 @@ export const MustBook = () =>{
         <>
 
             <div className='container'>
-            <h1>Jadid</h1>
             {
                 data.length &&
                 <ul className='d-flex justify-content-between flex-wrapp'>
