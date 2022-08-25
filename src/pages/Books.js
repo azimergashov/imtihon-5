@@ -2,8 +2,24 @@ import { Header, Hero } from "../components";
 import { NavLink, Outlet } from "react-router-dom";
 import './homePage.scss'
 import Kategoriyalar from "../../src/images/kategoriyalar.png";
+import { useAuth } from "../hook/useAuth";
 
 export const Books = () => {
+
+  const {language} = useAuth()
+
+  let period = ''
+
+
+  if(language ==='eng'){
+    period = 'period'
+
+  }if(language === 'rus'){
+    period = 'период'
+
+  }if(language === 'uzb'){
+    period = 'davri'
+  }
   return (
     <>
       <div className="books">
@@ -22,7 +38,7 @@ export const Books = () => {
                   }
                   to="/books/"
                 >
-                  Temuriylar davri
+                  Temuriylar {period}
                 </NavLink>
               </li>
 
@@ -44,7 +60,7 @@ export const Books = () => {
                   }
                   to="/books/soved-book"
                 >
-                  Sovet davri
+                  Sovet {period}
                 </NavLink>
               </li>
 
@@ -55,7 +71,7 @@ export const Books = () => {
                   }
                   to="/books/must-book"
                 >
-                  Mustaqillik davri
+                  Mustaqillik {period}
                 </NavLink>
               </li>
             </ul>

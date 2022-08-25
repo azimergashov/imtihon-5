@@ -6,7 +6,7 @@ import './register.scss'
 import registerImg from "../../images/register-img.png"
 
 export const Register = () => {
-  const { setToken } = useAuth();
+  const { setToken, language } = useAuth();
 
   const elName = useRef("");
   const elLast = useRef("");
@@ -29,6 +29,44 @@ export const Register = () => {
       .then((data) => setToken(data.data))
       .catch((er) => console.log(er));
   };
+
+
+  let heading = ''
+  let firstName = ""
+  let lastName = ''
+  let phone = ''
+  let email = ''
+  let password = ''
+  let btn = ''
+  let text = ''
+  if(language ==='eng'){
+    heading = 'My Profile'
+    firstName = "First name..."
+    lastName = 'Last Name...'
+    phone = "Phone number..."
+    email = "Email..."
+    password = "Password..."
+    btn = 'Next step'
+    text = 'Already have an account?'
+  }if(language === 'rus'){
+    heading = 'Мой Профил'
+    firstName = 'Имя...'
+    lastName = 'Фамилия...'
+    phone = 'Номер Телефона...'
+    email = "Эл. адрес..."
+    password = "Пароль..."
+    btn = 'Следующий шаг'
+    text = 'У вас уже есть аккаунт?'
+  }if(language === 'uzb'){
+    heading = 'Mening Profilim'
+    firstName = 'Ism...'
+    lastName = 'Familiya...'
+    phone = 'Telefon nomer...'
+    email = 'Email...'
+    password = 'Parol...'
+    btn = "Keyingi qadam"
+    text = 'Hisobingiz bormi?'
+  }
   return (
     <>
       <div className="register">
@@ -39,40 +77,40 @@ export const Register = () => {
           <div className="w-100 ps-3 register__right">
             <h1 className="register__heading">Sign up</h1>
 
-            <p>Already have an account? <Link className="text-decoration-none" to="/login">Sign in</Link></p>
+            <p>{text} <Link className="text-decoration-none" to="/login">Sign in</Link></p>
 
             <form className="register__form align-items-center" onSubmit={registerSubmit}>
               <input  className="form-control w-75"
                 ref={elName}
                 type="text"
-                placeholder="First name..."
+                placeholder={firstName}
                 required
               />
               <input  className="form-control w-75"
                 ref={elLast}
                 type="text"
-                placeholder="Last name.."
+                placeholder={lastName}
                 required
               />
               <input  className="form-control w-75"
                 ref={elPhone}
                 type="number"
-                placeholder="Phone number..."
+                placeholder={phone}
                 required
               />
               <input  className="form-control w-75"
                 ref={elEmail}
                 type="email"
-                placeholder="Email..."
+                placeholder={email}
                 required
               />
               <input className="form-control w-75"
                 ref={elPassword}
                 type="password"
-                placeholder="Password..."
+                placeholder={password}
                 required
               />
-              <button className="register__btn w-75" type="submit">Next step</button>
+              <button className="register__btn w-75" type="submit">{btn}</button>
             </form>
           </div>
         </div>

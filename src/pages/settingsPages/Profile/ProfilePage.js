@@ -7,7 +7,7 @@ import "./profile.scss";
 
 export const ProfilePage = () => {
 
-  const { token} = useAuth();
+  const { token, language} = useAuth();
   const [data, setData] = useState([]);
   const elFistName = useRef("")
   const elLastName = useRef("")
@@ -46,10 +46,36 @@ export const ProfilePage = () => {
       .then((data) => setData(data.data))
       .catch((er) => console.log(er));
 
-
-
   }, [token]);
 
+  let heading = ''
+  let firstName = ''
+  let lastName = ''
+  let phone = ''
+  let image = ''
+  let btn = ''
+  if(language ==='eng'){
+    heading = 'My Profile'
+    firstName = "First Name"
+    lastName = 'Last Name'
+    phone = 'Phone'
+    image = 'Image'
+    btn = 'Save Changes'
+  }if(language === 'rus'){
+    heading = 'Мой Профил'
+    firstName = 'Имя'
+    lastName = 'Фамилия'
+    phone = 'Номер Телефона'
+    image = 'Фото'
+    btn = 'Сохранит изменения'
+  }if(language === 'uzb'){
+    heading = 'Mening Profilim'
+    firstName = 'Ism'
+    lastName = 'Familiya'
+    phone = 'Telefon nomer'
+    image = 'Foto'
+    btn = "O'zgartirishlarni Saqlash"
+  }
 
 
   return (
@@ -75,27 +101,27 @@ export const ProfilePage = () => {
         </div>
       </div>
       <div className="w-100">
-        <h1 className="profile__heading">My profile</h1>
+        <h1 className="profile__heading">{heading}</h1>
         <div>
 
             <div>
-              <p className="profile__text-name">First Name</p>
+              <p className="profile__text-name">{firstName}</p>
               <input ref={elFistName} className="profile__text form-control" type="text" defaultValue={data.first_name} required/>
             </div>
 
             <div>
-              <p className="profile__text-name">Last Name</p>
+              <p className="profile__text-name">{lastName}</p>
               <input ref={elLastName} className="profile__text form-control" type="text" defaultValue={data.last_name} required/>
             </div>
 
             <div className="d-flex">
               <div className="w-100 me-4">
-                <p className="profile__text-name">Phone</p>
+                <p className="profile__text-name">{phone}</p>
                 <input ref={elNumber} className="profile__text form-control" type="number" defaultValue={data.phone} required/>
               </div>
 
               <div className="w-100">
-                <p className="profile__text-name">Image</p>
+                <p className="profile__text-name">{image}</p>
                 <input ref={elImg} className="profile__text form-control " type="file" required/>
               </div>
             </div>
@@ -106,7 +132,7 @@ export const ProfilePage = () => {
 
         <div className="profile__form-bottom-wrapper">
             <div className="profile__form-bottom ">
-              <button className="settigs-button" type="submit">Save Changes</button>
+              <button className="settigs-button" type="submit">{btn}</button>
             </div>
         </div>
       </form>

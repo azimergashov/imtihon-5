@@ -10,7 +10,7 @@ export const Login = () => {
   const elLoginEmail = useRef();
   const elLoginPassword = useRef();
   const navigate = useNavigate()
-  const {setToken} = useAuth()
+  const {setToken, language} = useAuth()
 
 
 
@@ -28,6 +28,31 @@ export const Login = () => {
 
   };
 
+  let heading = ''
+  let email = ''
+  let password = ''
+  let text = ''
+  let btn = ''
+  if(language ==='eng'){
+    heading = 'Sign in '
+    email = 'email'
+    password = 'password'
+    text = 'Do not you have an account?'
+    btn = 'Next step'
+  }if(language === 'rus'){
+    heading = 'Войти'
+    email = 'Эл. адрес'
+    password = 'пароль'
+    text = "У вас нет аккаунта?"
+    btn = 'Следующий шаг'
+  }if(language === 'uzb'){
+    heading = 'Tizimga kirish'
+    email = 'email'
+    password = 'parol'
+    text = "Hisobingiz yo'qmi?"
+    btn = "Keyingi qadam"
+  }
+
   return (
     <>
       <div className="register">
@@ -40,9 +65,9 @@ export const Login = () => {
 
         <div className="register__right w-100 ">
           <div className="login__form-div">
-            <h1 className="register__heading">Sign in</h1>
+            <h1 className="register__heading">{heading}</h1>
 
-            <p>Do not you have an account? <Link  className="text-decoration-none" to="/">Sign in</Link></p>
+            <p>{text}<Link  className="text-decoration-none" to="/">{heading}</Link></p>
             <form
               className="register__form align-items-center w-100"
               onSubmit={loginSubmit}
@@ -51,18 +76,18 @@ export const Login = () => {
                 className="form-control w-75"
                 ref={elLoginEmail}
                 type="email"
-                placeholder="email"
+                placeholder={email}
                 required
               />
               <input
                 className="form-control w-75"
                 ref={elLoginPassword}
                 type="password"
-                placeholder="password"
+                placeholder={password}
                 required
               />
               <button  className="register__btn w-75" type="submit">
-                Next step
+                {btn}
               </button>
             </form>
           </div>

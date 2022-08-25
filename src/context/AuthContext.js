@@ -8,15 +8,16 @@ export const AuthProvayder = ({children}) =>{
     const localBookId = JSON.parse(window.localStorage.getItem("bookId"))
     const localIdAuthor = JSON.parse(window.localStorage.getItem('idAuthor'))
     const localUserImg = JSON.parse(window.localStorage.getItem("userImg"))
-
+    const localLanguage = JSON.parse(window.localStorage.getItem("language"))
+    const localTheme = JSON.parse(window.localStorage.getItem("theme"))
 
     const [token, setToken] = useState(localData || '')
     const [authorId, setAuthorId] = useState(localAuthorId || "")
     const [bookId, setBookId] = useState(localBookId || '')
     const [idAuthor, setIdAuthor] = useState(localIdAuthor || '')
     const [userImg, setUserImg] = useState(localUserImg || '')
-    const [theme, setTheme] = useState(false)
-    const [language, setLanguage] = useState('')
+    const [theme, setTheme] = useState(localTheme || false)
+    const [language, setLanguage] = useState(localLanguage ||'eng')
 
 
     useEffect(()=>{

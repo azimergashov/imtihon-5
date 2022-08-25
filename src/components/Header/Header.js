@@ -9,7 +9,7 @@ import headerIcon from '../../images/header-icon.png'
 
 export const Header = () => {
   const [menu, setMenu] = useState(false)
-  const {token} = useAuth()
+  const {token, language} = useAuth()
   const [data, setData] = useState([])
 
   useEffect(() =>{
@@ -56,6 +56,39 @@ export const Header = () => {
   }, [menu])
 
 
+  let home = ''
+  let books = ''
+  let article = ''
+  let menus = ''
+  let  profile= ''
+  let security= ''
+  let settings= ''
+  if(language ==='eng'){
+   home = 'Home'
+   books = 'Books'
+   article = 'Articles'
+   menus = 'Menu'
+   profile= 'My Profile'
+   security= 'Security'
+   settings= 'Settings'
+  }if(language === 'rus'){
+    home = 'Дом'
+   books = 'Книги'
+   article = 'Статьи'
+   menus = 'Меню'
+   profile= 'Мой Профил'
+   security= 'Безопасность'
+   settings= 'Настройки'
+  }if(language === 'uzb'){
+    home = 'Uy'
+    books = 'Kitoblar'
+    article = 'Iqtiboslar'
+    menus = 'Menu'
+    profile= 'Mening Profilim'
+    security= 'Xafsizlik'
+    settings= 'Sozlamalar'
+  }
+
 
   return (
     <>
@@ -75,7 +108,7 @@ export const Header = () => {
                       isActive ? "active--link header__nav-link" : "header__nav-link"
                     }
                   >
-                    Home
+                  {home}
                   </NavLink>
                 </li>
 
@@ -86,7 +119,7 @@ export const Header = () => {
                       isActive ? "active--link header__nav-link" : "header__nav-link"
                     }
                   >
-                    Books
+                    {books}
                   </NavLink>
                 </li>
 
@@ -97,7 +130,7 @@ export const Header = () => {
                       isActive ? "active--link header__nav-link" : "header__nav-link"
                     }
                   >
-                    Article
+                    {article}
                   </NavLink>
                 </li>
               </ul>
@@ -116,13 +149,13 @@ export const Header = () => {
               <div onClick={menuOpen} className={menu ? "header__select-bg " : "header__select-bg d-none"} ></div>
 
               <div className={menu ? "header__select-div" : "header__select-div d-none"}>
-                <div className="header__select-menu"><p className="ps-2 pt-3 fs-5 ">Menu</p>
+                <div className="header__select-menu"><p className="ps-2 pt-3 fs-5 ">{menus}</p>
                 <button onClick={menuOpen} className="header__select-close bg-danger">&times;</button>
                 </div>
                 <ul className="list-unstyled m-0 p-0">
-                  <li onClick={profileOpen} className="header__select-item">My profile</li>
-                  <li onClick={securityOpen} className="header__select-item">Security</li>
-                  <li onClick={settingsOpen} className="header__select-item">Settings</li>
+                  <li onClick={profileOpen} className="header__select-item">{profile}</li>
+                  <li onClick={securityOpen} className="header__select-item">{security}</li>
+                  <li onClick={settingsOpen} className="header__select-item">{settings}</li>
                 </ul>
               </div>
             </div>
