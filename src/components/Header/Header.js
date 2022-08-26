@@ -19,17 +19,6 @@ export const Header = () => {
 
   const {home, books ,article} = boom
 
-
-
-
-
-
-
-
-
-
-
-
   return (
     <>
       <header className="header">

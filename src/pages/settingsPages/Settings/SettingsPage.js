@@ -31,10 +31,17 @@ export const SettingsPage = () => {
     }
 
     const {settin,  dark,  light,  english,  uzbek,  russian,  languageText, btn} = boom
+    const [color, setColor] = useState("#FFF")
 
-  return (
+    const colorChange = (evt) =>{
+        console.log(evt.target.value);
+        setColor(evt.target.value)
+    }
+
+    console.log(color);
+    return(
     <>
-      <div className="settings__wrapper">
+      <div  className="settings__wrapper">
         <h1 className="profile__heading">{settin}</h1>
 
         <div className="mb-4">
@@ -46,6 +53,9 @@ export const SettingsPage = () => {
             </select>
         </div>
 
+        <form >
+        <input onChange={colorChange}  type="color" className="form-control form-control-color" id="exampleColorInput"  title="Choose your color"/>
+        </form>
         <div>
             <p className="profile__text-name m-0 p-0 mb-2" >{theme ? dark : light  }</p>
             <input defaultChecked={theme} onChange={() =>  setChange(!theme)}  className="form-check-input " type="checkbox" />
@@ -59,7 +69,7 @@ export const SettingsPage = () => {
 
       </div>
     </>
-  );
+  )
 };
 
 // import * as React from 'react';

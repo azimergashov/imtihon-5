@@ -59,7 +59,7 @@ export const languagesRus = {
       addBook : "Добавить книгу",
 };
 export const languagesUzb = {
-  home: "Uy",
+  home: "Bosh sahifa",
   books: "Kitoblar",
   article: "Iqtiboslar",
   menus: "Menu",

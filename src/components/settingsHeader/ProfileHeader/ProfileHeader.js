@@ -70,7 +70,7 @@ export const ProfileHeader = () => {
 
   return (
     <>
-      <header className="profile__header">
+      <header className="profile__header position-relative">
         <nav>
           <ul className="d-flex align-items-center list-unstyled m-0 p-0">
             <li className="profile__item">
