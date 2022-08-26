@@ -18,6 +18,7 @@ export const AuthProvayder = ({children}) =>{
     const [userImg, setUserImg] = useState(localUserImg || '')
     const [theme, setTheme] = useState(localTheme || false)
     const [language, setLanguage] = useState(localLanguage ||'eng')
+    const [menu, setMenu] = useState(false)
 
 
     useEffect(()=>{
@@ -59,7 +60,7 @@ export const AuthProvayder = ({children}) =>{
         }
     },[token])
     return(
-       <AuthContext.Provider value={{token, setToken, authorId, setAuthorId, bookId, setBookId, idAuthor, setIdAuthor, userImg, setUserImg, theme, setTheme, language, setLanguage}}>
+       <AuthContext.Provider value={{token, setToken, authorId, setAuthorId, bookId, setBookId, idAuthor, setIdAuthor, userImg, setUserImg, theme, setTheme, language, setLanguage, menu, setMenu}}>
             {children}
        </AuthContext.Provider>
     )

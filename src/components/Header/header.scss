@@ -1,8 +1,9 @@
 
+@import '../../styles/vereble.scss';
 
 .header{
-    background-color: #000000;
-    border-bottom: solid 1px #191919;
+    background-color: $body-color;
+    border-bottom: solid 1px $bg-color;
 
 }
 
@@ -25,20 +26,20 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 144.4%;
-    color: #FFFFFF;
+    color: $text-color;
     padding: 10px;
 
 }
 
 .header__nav-link:hover{
-    color: #FFFFFF;
+    color: $text-color;
 }
 
 .header__select{
 
     max-width: 30px;
-    background-color: #191919;
-    color: #FFFFFF;
+    background-color: $bg-color;
+    color: $text-color;
     border: none;
     margin-left: 5px;
 }
@@ -53,19 +54,18 @@
 }
 
 .header__select-item{
-    border-bottom: solid 1px #000000;
+    border-bottom: solid 1px $body-color;
     padding: 10px 50px;
 }
 
 .header__select-item:hover{
     background-color: teal;
     cursor: pointer;
-    // .default {cursor: default;}
 
 }
 
 .header__select-bg{
-    background-color: #000000;
+    background-color: $body-color;
     opacity: 75%;
     position: fixed;
     top: 0;
@@ -79,7 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: solid 1px #000000;
+    border-bottom: solid 1px $body-color;
 }
 
 .header__select-menu p:hover{
@@ -99,9 +99,9 @@
 }
 
 .active--link{
-    border-bottom: solid 1px #FFFFFFFF;
+    border-bottom: solid 1px #FFFFFF;
 }
 
 .active--link:hover{
-    color: #FFFFFF;
+    color: $text-color;
 }

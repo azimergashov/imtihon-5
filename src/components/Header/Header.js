@@ -8,8 +8,8 @@ import axios from "axios";
 import headerIcon from '../../images/header-icon.png'
 
 export const Header = () => {
-  const [menu, setMenu] = useState(false)
-  const {token, language} = useAuth()
+
+  const {token, language, menu, setMenu} = useAuth()
   const [data, setData] = useState([])
 
   useEffect(() =>{

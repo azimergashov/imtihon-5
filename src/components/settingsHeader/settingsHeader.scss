@@ -1,6 +1,11 @@
+@import '../../styles/vereble.scss';
+
 .profile__header{
-    padding-bottom: 21px;
+    padding-bottom: 8px;
     padding-top: 30px; background-color: #E5E5E5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
