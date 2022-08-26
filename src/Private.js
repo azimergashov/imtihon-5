@@ -9,6 +9,7 @@ import { SecurityPage } from "./pages/settingsPages/Security/SecurityPage";
 import { SettingsPage } from "./pages/settingsPages/Settings/SettingsPage";
 import {Books} from './pages/Books'
 import { SingleBookPage } from "./pages/singleBook";
+import { AddAuthor, AddBook } from "./pages/addAuthorBook";
 
 
 
@@ -52,6 +53,8 @@ export const Private = () =>{
           <Route path="/soved" element={<Soved />} />
           <Route path="/must" element={<Must />} />
         </Route>
+        <Route path="/add-author" element={<AddAuthor/>}/>
+        <Route path="/add-book"  element={<AddBook/>}/>
       </Routes>
 
         </>

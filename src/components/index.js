@@ -13,4 +13,5 @@ import { ProfileHeader } from "./settingsHeader/ProfileHeader";
 
 
 
+
 export {Header, Hero, Temur, Jadid, Soved, Must, CardSingleAuth, SingleBookCenterOne, SingleBookCenterTwo, SingleBookCenterThree, SingleBookNav, ProfileHeader}

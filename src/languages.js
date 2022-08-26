@@ -24,6 +24,8 @@ export const languages = {
   uzbek : 'Uzbek',
   russian : 'Russian',
   languageText : 'Language',
+  addAuthor: "Add author",
+  addBook : "Add book",
 
 };
 
@@ -53,6 +55,8 @@ export const languagesRus = {
       uzbek : 'Узбекский',
       russian      : 'Русский',
       languageText : 'Язык',
+      addAuthor: "Добавить автора",
+      addBook : "Добавить книгу",
 };
 export const languagesUzb = {
   home: "Uy",
@@ -80,6 +84,8 @@ export const languagesUzb = {
   uzbek        : "O'zbekcha",
   russian      : 'Ruscha',
   languageText : 'Til',
+  addAuthor: "Aftor qo'shish",
+  addBook : "Kitob qo'shish",
 };
 
 // firstName, lastName, phone,image, btn, home, books , article, menus, profile, security, settings, heading  ,email ,currentPasvord ,newPassword ,confimPassword, settin,  dark,  light,  english,  uzbek,  russian,  languageText

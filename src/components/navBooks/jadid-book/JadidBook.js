@@ -27,7 +27,7 @@ export const JadidBook = () =>{
             <div className='container'>
             {
                 data.length &&
-                <ul className='d-flex justify-content-between flex-wrapp'>
+                <ul className='d-flex justify-content-between flex-wrap  list-unstyled'>
                     {
                         data.map((e) => (
                             <CardBook e={e} key={e.id}/>
