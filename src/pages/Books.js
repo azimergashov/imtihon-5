@@ -3,23 +3,23 @@ import { NavLink, Outlet } from "react-router-dom";
 import './homePage.scss'
 import Kategoriyalar from "../../src/images/kategoriyalar.png";
 import { useAuth } from "../hook/useAuth";
+import { languages, languagesRus, languagesUzb } from "../languages";
 
 export const Books = () => {
 
   const {language} = useAuth()
 
-  let period = ''
+  let boom = {}
 
-
-  if(language ==='eng'){
-    period = 'period'
-
+  if(language === 'eng'){
+    boom = {...languages}
   }if(language === 'rus'){
-    period = 'период'
-
+    boom = {...languagesRus}
   }if(language === 'uzb'){
-    period = 'davri'
+    boom = {...languagesUzb}
   }
+  const {period} = boom
+
   return (
     <>
       <div className="books">

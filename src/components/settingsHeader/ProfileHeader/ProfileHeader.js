@@ -6,6 +6,8 @@ import '../settingsHeader.scss'
 import headerIcon from '../../../images/header-icon.png'
 import SelectImg from "../../../images/select-img.png";
 import axios from 'axios'
+import { languages, languagesRus, languagesUzb } from '../../../languages'
+
 
 
 export  const ProfileHeader = () =>{
@@ -57,30 +59,20 @@ export  const ProfileHeader = () =>{
   const settingsOpen = () =>{
     navigate("/profile/settings")
   }
+  let boom = {}
+  if(language === 'eng'){
+    boom = {...languages}
+  }if(language === 'rus'){
+    boom = {...languagesRus}
+  }if(language === 'uzb'){
+    boom = {...languagesUzb}
+  }
+
+  const {menus, profile, security, settings, } = boom
 
 
-let  profile= ''
-let security= ''
-let settings= ''
-let menus = ''
-if(language ==='eng'){
- profile= 'My Profile'
- security= 'Security'
- settings= 'Settings'
- menus = 'Menu'
-}if(language === 'rus'){
- profile= 'Мой Профил'
- security= 'Безопасность'
- settings= 'Настройки'
- menus = 'Меню'
-}if(language === 'uzb'){
 
-  profile= 'Mening Profilim'
-  security= 'Xafsizlik'
-  settings= 'Sozlamalar'
-  menus = 'Menu'
-}
-    return (
+  return (
         <>
 
                 <header className='profile__header'>

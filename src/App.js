@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./hook/useAuth";
 import { Private } from "./Private";
 import { Public } from "./Public";
-import { languages } from "./languages";
+import {languages} from './languages'
 
 
 function App() {

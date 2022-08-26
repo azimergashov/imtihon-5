@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRef, useState } from "react";
 import { useAuth } from "../../../hook/useAuth";
+import { languages, languagesRus, languagesUzb } from "../../../languages";
 import "../Profile/profile.scss";
 import "./security.scss";
 
@@ -41,36 +42,20 @@ export const SecurityPage = () => {
       .catch((er) => console.log(er));
   };
 
-  let heading = "";
-  let email = "";
-  let currentPasvord = "";
-  let newPassword = "";
-  let confimPassword = "";
-  let btn = "";
-  if (language === "eng") {
-    heading = "Change Or Recover Your Password:";
-    btn = "Save Changes";
-    email = 'Email'
-    currentPasvord = "Current password";
-    newPassword = "New Password";
-    confimPassword = "Confirm Password";
+
+
+  let boom = {}
+
+  if(language === 'eng'){
+    boom = {...languages}
+  }if(language === 'rus'){
+    boom = {...languagesRus}
+  }if(language === 'uzb'){
+    boom = {...languagesUzb}
   }
-  if (language === "rus") {
-    heading = "Изменить или восстановить свой пароль:";
-    btn = "Сохранит изменения";
-    email = "Эл. адрес"
-    currentPasvord = 'Текущий пароль'
-    newPassword = "Новый пароль";
-    confimPassword = "Подтвердить Пароль";
-  }
-  if (language === "uzb") {
-    heading = "Parolingizni o'zgartiring yoki tiklang:";
-    btn = "O'zgartirishlarni Saqlash";
-    email = "Elektron pochta"
-    currentPasvord = 'Joriy parol'
-    newPassword = "Yangi Parol";
-    confimPassword = "Parolni tasdiqlang";
-  }
+  const {heading  ,email ,currentPasvord , newPassword , confimPassword, btn } = boom
+
+
 
   return (
     <>

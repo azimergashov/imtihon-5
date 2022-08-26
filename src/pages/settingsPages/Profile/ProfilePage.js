@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../../hook/useAuth";
 import "./profile.scss";
+import { languages, languagesRus, languagesUzb } from "../../../languages";
 
 export const ProfilePage = () => {
 
@@ -48,34 +49,17 @@ export const ProfilePage = () => {
 
   }, [token]);
 
-  let heading = ''
-  let firstName = ''
-  let lastName = ''
-  let phone = ''
-  let image = ''
-  let btn = ''
-  if(language ==='eng'){
-    heading = 'My Profile'
-    firstName = "First Name"
-    lastName = 'Last Name'
-    phone = 'Phone'
-    image = 'Image'
-    btn = 'Save Changes'
+  let boom = {}
+
+  if(language === 'eng'){
+    boom = {...languages}
   }if(language === 'rus'){
-    heading = 'Мой Профил'
-    firstName = 'Имя'
-    lastName = 'Фамилия'
-    phone = 'Номер Телефона'
-    image = 'Фото'
-    btn = 'Сохранит изменения'
+    boom = {...languagesRus}
   }if(language === 'uzb'){
-    heading = 'Mening Profilim'
-    firstName = 'Ism'
-    lastName = 'Familiya'
-    phone = 'Telefon nomer'
-    image = 'Foto'
-    btn = "O'zgartirishlarni Saqlash"
+    boom = {...languagesUzb}
   }
+  const {firstName, lastName, phone,image, btn, profile   } = boom
+
 
 
   return (
@@ -101,7 +85,7 @@ export const ProfilePage = () => {
         </div>
       </div>
       <div className="w-100">
-        <h1 className="profile__heading">{heading}</h1>
+        <h1 className="profile__heading">{profile}</h1>
         <div>
 
             <div>

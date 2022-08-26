@@ -3,6 +3,7 @@ import "./settings.scss";
 import '../Profile/profile.scss'
 import { useAuth } from "../../../hook/useAuth";
 import { useRef, useState } from "react";
+import { languages, languagesRus, languagesUzb } from "../../../languages";
 
 
 export const SettingsPage = () => {
@@ -19,48 +20,22 @@ export const SettingsPage = () => {
         window.localStorage.setItem("language", JSON.stringify(elSelect.current.value))
     }
 
+    let boom = {}
 
-    let heading = ''
-    let dark = ''
-    let light = ''
-    let english = ''
-    let uzbek = ''
-    let russian = ''
-    let languageText = ''
-    let btn = ''
-    if(language ==='eng'){
-      heading = 'Settings'
-      dark = 'Dark'
-      light = 'Light'
-      english = 'English'
-      uzbek = 'Uzbek'
-      russian = 'Russian'
-      languageText = 'Language'
-      btn = 'Save Changes'
+    if(language === 'eng'){
+      boom = {...languages}
     }if(language === 'rus'){
-      heading = 'Настройки'
-      dark = 'Чорний'
-      light = 'Белый'
-      english = 'Английский'
-      uzbek = 'Узбекский'
-      russian = 'Русский'
-      languageText = 'Язык'
-      btn = 'Сохранит изменения'
+      boom = {...languagesRus}
     }if(language === 'uzb'){
-      heading = 'Sozlamalar'
-      dark = 'Qora'
-      light = 'Oq'
-      english = 'Inglizcha'
-      uzbek = "O'zbekcha"
-      russian = 'Ruscha'
-      languageText = 'Til'
-      btn = "O'zgartirishlarni Saqlash"
+      boom = {...languagesUzb}
     }
+
+    const {settin,  dark,  light,  english,  uzbek,  russian,  languageText, btn} = boom
 
   return (
     <>
       <div className="settings__wrapper">
-        <h1 className="profile__heading">{heading}</h1>
+        <h1 className="profile__heading">{settin}</h1>
 
         <div className="mb-4">
             <p className="profile__text-name">{languageText}</p>

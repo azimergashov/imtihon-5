@@ -6,11 +6,24 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../hook/useAuth";
 import axios from "axios";
 import headerIcon from '../../images/header-icon.png'
+import {languages, languagesRus, languagesUzb} from '../../languages'
 
 export const Header = () => {
-
   const {token, language, menu, setMenu} = useAuth()
   const [data, setData] = useState([])
+  let boom = {}
+
+  if(language === 'eng'){
+    boom = {...languages}
+  }if(language === 'rus'){
+    boom = {...languagesRus}
+  }if(language === 'uzb'){
+    boom = {...languagesUzb}
+  }
+
+  const {home, books ,article,menus, profile, security, settings} = boom
+
+
 
   useEffect(() =>{
     axios.get('https://book-service-layer.herokuapp.com/user/me', {
@@ -30,14 +43,17 @@ export const Header = () => {
 
   const profileOpen = () =>{
     navigate("/profile/")
+    setMenu(!menu)
   }
 
   const securityOpen = () =>{
     navigate("/profile/security")
+    setMenu(!menu)
   }
 
   const settingsOpen = () =>{
     navigate("/profile/settings")
+    setMenu(!menu)
   }
 
   useEffect(() => {
@@ -56,38 +72,6 @@ export const Header = () => {
   }, [menu])
 
 
-  let home = ''
-  let books = ''
-  let article = ''
-  let menus = ''
-  let  profile= ''
-  let security= ''
-  let settings= ''
-  if(language ==='eng'){
-   home = 'Home'
-   books = 'Books'
-   article = 'Articles'
-   menus = 'Menu'
-   profile= 'My Profile'
-   security= 'Security'
-   settings= 'Settings'
-  }if(language === 'rus'){
-    home = 'Дом'
-   books = 'Книги'
-   article = 'Статьи'
-   menus = 'Меню'
-   profile= 'Мой Профил'
-   security= 'Безопасность'
-   settings= 'Настройки'
-  }if(language === 'uzb'){
-    home = 'Uy'
-    books = 'Kitoblar'
-    article = 'Iqtiboslar'
-    menus = 'Menu'
-    profile= 'Mening Profilim'
-    security= 'Xafsizlik'
-    settings= 'Sozlamalar'
-  }
 
 
   return (
@@ -165,3 +149,37 @@ export const Header = () => {
     </>
   );
 };
+
+
+// let home = ''
+// let books = ''
+// let article = ''
+// let menus = ''
+// let  profile= ''
+// let security= ''
+// let settings= ''
+// if(language ==='eng'){
+//  home = 'Home'
+//  books = 'Books'
+//  article = 'Articles'
+//  menus = 'Menu'
+//  profile= 'My Profile'
+//  security= 'Security'
+//  settings= 'Settings'
+// }if(language === 'rus'){
+//   home = 'Дом'
+//  books = 'Книги'
+//  article = 'Статьи'
+//  menus = 'Меню'
+//  profile= 'Мой Профил'
+//  security= 'Безопасность'
+//  settings= 'Настройки'
+// }if(language === 'uzb'){
+//   home = 'Uy'
+//   books = 'Kitoblar'
+//   article = 'Iqtiboslar'
+//   menus = 'Menu'
+//   profile= 'Mening Profilim'
+//   security= 'Xafsizlik'
+//   settings= 'Sozlamalar'
+// }
