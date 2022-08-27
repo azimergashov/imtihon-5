@@ -5,12 +5,13 @@ import loginImg from '../../images/login-img.png'
 import { Link, useNavigate } from "react-router-dom";
 import './login.scss'
 import { useAuth } from "../../hook/useAuth";
+import { languages, languagesRus, languagesUzb } from "../../languages";
 
 export const Login = () => {
   const elLoginEmail = useRef();
   const elLoginPassword = useRef();
   const navigate = useNavigate()
-  const {setToken, language} = useAuth()
+  const {setToken, language, setLanguage} = useAuth()
 
 
 
@@ -28,29 +29,21 @@ export const Login = () => {
 
   };
 
-  let heading = ''
-  let email = ''
-  let password = ''
-  let text = ''
-  let btn = ''
-  if(language ==='eng'){
-    heading = 'Sign in '
-    email = 'email'
-    password = 'password'
-    text = 'Do not you have an account?'
-    btn = 'Next step'
+  let boom = {}
+
+  if(language === 'eng'){
+    boom = {...languages}
   }if(language === 'rus'){
-    heading = 'Войти'
-    email = 'Эл. адрес'
-    password = 'пароль'
-    text = "У вас нет аккаунта?"
-    btn = 'Следующий шаг'
+    boom = {...languagesRus}
   }if(language === 'uzb'){
-    heading = 'Tizimga kirish'
-    email = 'email'
-    password = 'parol'
-    text = "Hisobingiz yo'qmi?"
-    btn = "Keyingi qadam"
+    boom = {...languagesUzb}
+  }
+
+  const {signIn, email, password, textLogin, btnLogin, signUp} = boom
+
+  const handleLanguage = (evt) =>{
+    setLanguage(evt.target.value)
+    window.localStorage.setItem('language', JSON.stringify(evt.target.value))
   }
 
   return (
@@ -65,9 +58,17 @@ export const Login = () => {
 
         <div className="register__right w-100 ">
           <div className="login__form-div">
-            <h1 className="register__heading">{heading}</h1>
+          <div className="w-100 text-end">
+              <select defaultValue={language} onChange={handleLanguage} className="">
+                <option value="eng">Eng</option>
+                <option value="rus">Rus</option>
+                <option value="uzb">Uzb</option>
 
-            <p>{text}<Link  className="text-decoration-none" to="/">{heading}</Link></p>
+              </select>
+            </div>
+            <h1 className="register__heading">{signIn}</h1>
+
+            <p>{textLogin}<Link  className="text-decoration-none" to="/">{signUp}</Link></p>
             <form
               className="register__form align-items-center w-100"
               onSubmit={loginSubmit}
@@ -76,18 +77,18 @@ export const Login = () => {
                 className="form-control w-75"
                 ref={elLoginEmail}
                 type="email"
-                placeholder={email}
+                placeholder={`${email}...`}
                 required
               />
               <input
                 className="form-control w-75"
                 ref={elLoginPassword}
                 type="password"
-                placeholder={password}
+                placeholder={`${password}...`}
                 required
               />
               <button  className="register__btn w-75" type="submit">
-                {btn}
+                {btnLogin}
               </button>
             </form>
           </div>

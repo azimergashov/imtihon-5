@@ -6,7 +6,8 @@ import {languages, languagesRus, languagesUzb} from '../../languages'
 import { HeaderMenu } from "./HeaderMenu";
 
 export const Header = () => {
-  const { language} = useAuth()
+  const { language, theme} = useAuth()
+  const navigate = useNavigate()
   let boom = {}
 
   if(language === 'eng'){
@@ -19,9 +20,33 @@ export const Header = () => {
 
   const {home, books ,article} = boom
 
+  const logout = () =>{
+    window.localStorage.removeItem('token')
+    navigate('/')
+    window.location.reload(true)
+  }
+
+  let linkLight = ""
+
+  if(!theme){
+    linkLight = "header__nav-link-light"
+  }else{
+    linkLight = "header__nav-link"
+  }
+
+  let linkLightActive = ""
+
+  if(!theme){
+    linkLightActive = "active--link-light header__nav-link"
+  }else{
+    linkLightActive = "active--link header__nav-link"
+  }
+
+
+
   return (
     <>
-      <header className="header">
+      <header className={!theme ? "header-light" :"header" }>
         <div className=" container d-flex align-items-center justify-content-between position-relative">
           <Link to="/" className="header__logo">
             <img src={HeaderLogo} alt="header-logo" width={96} height={26} />
@@ -34,7 +59,7 @@ export const Header = () => {
                   <NavLink
                     to="/"
                     className={({ isActive }) =>
-                      isActive ? "active--link header__nav-link" : "header__nav-link"
+                      isActive ? linkLightActive : linkLight
                     }
                   >
                   {home}
@@ -45,7 +70,7 @@ export const Header = () => {
                   <NavLink
                     to="/books"
                     className={({ isActive }) =>
-                      isActive ? "active--link header__nav-link" : "header__nav-link"
+                      isActive ? linkLightActive : linkLight
                     }
                   >
                     {books}
@@ -56,7 +81,7 @@ export const Header = () => {
                   <NavLink
                     to="/article"
                     className={({ isActive }) =>
-                      isActive ? "active--link header__nav-link" : "header__nav-link"
+                      isActive ?  linkLightActive :  linkLight
                     }
                   >
                     {article}
@@ -65,7 +90,8 @@ export const Header = () => {
               </ul>
             </nav>
 
-            <div>
+            <div className="d-flex align-content-center justify-content-between">
+                <button onClick={logout} className="btn btn-primary me-3">Logout</button>
                 <HeaderMenu/>
             </div>
           </div>

@@ -8,7 +8,7 @@ import { languages, languagesRus, languagesUzb } from "../../../languages";
 
 export const SettingsPage = () => {
 
-    const {theme, setTheme, setLanguage, language} = useAuth()
+    const {theme, setTheme, setLanguage, language, bodyColor, setBodyColor, bgColor, setBgColor, textColor, setTextColor} = useAuth()
     const elSelect = useRef("")
 
     const [change, setChange] = useState(false)
@@ -31,14 +31,36 @@ export const SettingsPage = () => {
     }
 
     const {settin,  dark,  light,  english,  uzbek,  russian,  languageText, btn} = boom
-    const [color, setColor] = useState("#FFF")
+
 
     const colorChange = (evt) =>{
         console.log(evt.target.value);
-        setColor(evt.target.value)
+        setBodyColor(evt.target.value)
+        window.localStorage.setItem("body-color", evt.target.value)
     }
 
-    console.log(color);
+    const textColorChange = (evt) =>{
+      console.log(evt.target.value);
+      setTextColor(evt.target.value)
+      window.localStorage.setItem("text-color", evt.target.value)
+    }
+
+    const bgColorChange = (evt) =>{
+      console.log(evt.target.value);
+      setBgColor(evt.target.value)
+      window.localStorage.setItem("bg-color", evt.target.value)
+
+    }
+
+    const hendleReset = () =>{
+        window.localStorage.removeItem('body-color')
+        window.localStorage.removeItem('bg-color')
+        window.localStorage.removeItem('text-color')
+        window.location.reload(true)
+
+    }
+
+
     return(
     <>
       <div  className="settings__wrapper">
@@ -53,9 +75,22 @@ export const SettingsPage = () => {
             </select>
         </div>
 
-        <form >
+
+        <div className="d-none">
         <input onChange={colorChange}  type="color" className="form-control form-control-color" id="exampleColorInput"  title="Choose your color"/>
-        </form>
+
+
+        <input onChange={textColorChange}  type="color" className="form-control form-control-color" id="textColor"  title="Choose your text-color"/>
+
+
+        <input onChange={bgColorChange}  type="color" className="form-control form-control-color" id="textColor"  title="Choose your text-color"/>
+
+        <button onClick={hendleReset}>reset</button>
+
+        </div>
+
+
+
         <div>
             <p className="profile__text-name m-0 p-0 mb-2" >{theme ? dark : light  }</p>
             <input defaultChecked={theme} onChange={() =>  setChange(!theme)}  className="form-check-input " type="checkbox" />

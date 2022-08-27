@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hook/useAuth";
 import './register.scss'
 import registerImg from "../../images/register-img.png"
+import { languages, languagesRus, languagesUzb } from "../../languages";
 
 export const Register = () => {
-  const { setToken, language } = useAuth();
+  const { setToken, language, setLanguage } = useAuth();
+
 
   const elName = useRef("");
   const elLast = useRef("");
@@ -30,43 +32,25 @@ export const Register = () => {
       .catch((er) => console.log(er));
   };
 
-
-  let heading = ''
-  let firstName = ""
-  let lastName = ''
-  let phone = ''
-  let email = ''
-  let password = ''
-  let btn = ''
-  let text = ''
-  if(language ==='eng'){
-    heading = 'My Profile'
-    firstName = "First name..."
-    lastName = 'Last Name...'
-    phone = "Phone number..."
-    email = "Email..."
-    password = "Password..."
-    btn = 'Next step'
-    text = 'Already have an account?'
-  }if(language === 'rus'){
-    heading = 'Мой Профил'
-    firstName = 'Имя...'
-    lastName = 'Фамилия...'
-    phone = 'Номер Телефона...'
-    email = "Эл. адрес..."
-    password = "Пароль..."
-    btn = 'Следующий шаг'
-    text = 'У вас уже есть аккаунт?'
-  }if(language === 'uzb'){
-    heading = 'Mening Profilim'
-    firstName = 'Ism...'
-    lastName = 'Familiya...'
-    phone = 'Telefon nomer...'
-    email = 'Email...'
-    password = 'Parol...'
-    btn = "Keyingi qadam"
-    text = 'Hisobingiz bormi?'
+  const handleLanguage = (evt) =>{
+    setLanguage(evt.target.value)
+    window.localStorage.setItem('language', JSON.stringify(evt.target.value))
   }
+
+
+  let boom = {}
+
+  if(language === 'eng'){
+    boom = {...languages}
+  }if(language === 'rus'){
+    boom = {...languagesRus}
+  }if(language === 'uzb'){
+    boom = {...languagesUzb}
+  }
+
+  const {signUp, textRegister, firstName, lastName, phone, password,email, btnLogin, signIn} = boom
+
+
   return (
     <>
       <div className="register">
@@ -75,42 +59,50 @@ export const Register = () => {
             <img className="register__img" src={registerImg} alt="register-img" width={500} height={500}/>
           </div>
           <div className="w-100 ps-3 register__right">
-            <h1 className="register__heading">Sign up</h1>
+            <div className="w-100 text-end">
+              <select defaultValue={language} onChange={handleLanguage} className="">
+                <option value="eng">Eng</option>
+                <option value="rus">Rus</option>
+                <option value="uzb">Uzb</option>
 
-            <p>{text} <Link className="text-decoration-none" to="/login">Sign in</Link></p>
+              </select>
+            </div>
+            <h1 className="register__heading">{signUp}</h1>
+
+            <p>{textRegister} <Link className="text-decoration-none" to="/login">{signIn}</Link></p>
 
             <form className="register__form align-items-center" onSubmit={registerSubmit}>
               <input  className="form-control w-75"
                 ref={elName}
                 type="text"
-                placeholder={firstName}
+                placeholder={`${firstName}...`}
                 required
               />
               <input  className="form-control w-75"
                 ref={elLast}
                 type="text"
-                placeholder={lastName}
+                placeholder={`${lastName}...`}
                 required
               />
               <input  className="form-control w-75"
                 ref={elPhone}
                 type="number"
-                placeholder={phone}
+                placeholder={`${phone}...`}
                 required
               />
               <input  className="form-control w-75"
                 ref={elEmail}
                 type="email"
-                placeholder={email}
+                placeholder={`${email}...`}
                 required
               />
               <input className="form-control w-75"
                 ref={elPassword}
                 type="password"
-                placeholder={password}
+                placeholder={`${password}...`}
                 required
               />
-              <button className="register__btn w-75" type="submit">{btn}</button>
+              <button className="register__btn w-75" type="submit">{btnLogin}</button>
             </form>
           </div>
         </div>
