@@ -7,7 +7,7 @@
 }
 
 .header-light{
-    background-color: #D3F4F3;
+    background-color: $bg-color-light;
     border: solid 1px #FFFFFF;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .header__select-item:hover{
-    background-color: teal;
+    background-color: $bg-color-light;
     cursor: pointer;
 
 }
@@ -112,15 +112,15 @@
 }
 
 .active--link{
-    border-bottom: solid 1px #FFFFFF;
+    border-bottom: solid 1px $text-color;
 }
 
 .active--link-light{
-    color: $bg-color;
-    border-bottom: solid 1px $bg-color;
+    color: $text-color-light;
+    border-bottom: solid 1px $text-color-light;
 }
 .active--link-light:hover{
-    color: $bg-color;
+    color: $text-color-light;
 }
 
 .active--link:hover{

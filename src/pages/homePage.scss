@@ -1,7 +1,12 @@
+@import "../styles/vereble.scss";
 
 .homepage{
     background-color: #000000;
     min-height: 100vh;
+}
+
+.homepage-light{
+    background-color: $bg-color-light;
 }
 
 .active-link{
@@ -17,6 +22,19 @@
     color: #C9AC8C;
 }
 
+.active-link-light{
+    text-decoration: none;
+    font-family: 'Steinbeck';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: #C9AC8C;
+}
+.active-link-light:hover{
+    color: $text-color-light;
+}
+
 .homepage__nav-link{
     text-decoration: none;
     font-family: 'Steinbeck';
@@ -30,7 +48,18 @@
 .homepage__nav-link:hover{
     color: #C9AC8C;
 }
-
+.homepage__nav-link-light{
+    text-decoration: none;
+    font-family: 'Steinbeck';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: $text-color-light;
+}
+.homepage__nav-link-light:hover{
+    color: $text-color-light;
+}
 
 .homepage__nav-list {
     margin: 0;
@@ -49,4 +78,8 @@
 .books{
     background-color: #000000;
     min-height: 100vh;
+}
+
+.books-light{
+    background-color: $bg-color-light;
 }

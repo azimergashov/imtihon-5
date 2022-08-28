@@ -29,41 +29,21 @@ export const CardBook = ({e}) =>{
         }).then(data => setData(data.data)).catch(er => console.log(er))
     }, [token, e])
 
-    // if(e.author_id === 1){
-    //     authorTitle = "Hamid Olimjon "
-    //  }else if(e.author_id === 2){
-    //      authorTitle ="O'tkir Hoshimov"
-    //  }else if(e.author_id === 3){
-    //      authorTitle = "Abdulhamid Cho'lpon"
-    //  }else if(e.author_id === 4){
-    //      authorTitle = "Robin Sharma"
-    //  }else if(e.author_id === 5){
-    //      authorTitle = "Zulfiya Isroilova"
-    //  }else if(e.author_id === 6){
-    //      authorTitle = "Zulfiya Isroilova"
-    //  }else if(e.author_id === 7){
-    //      authorTitle = "Abdulla  Qodiriy"
-    //  }else if(e.author_id === 8){
-    //      authorTitle = "Kimdur"
-    //  }else if(e.author_id === 9){
-    //      authorTitle = "Kimdur"
-    //  }else if(e.author_id === 10){
-    //      authorTitle = "Kimdur"
-    //  }else if(e.author_id === 11){
-    //      authorTitle = "Kimdur"
-    //  }else if(e.author_id === 12){
-    //      authorTitle = "Kimdur"
-    //  }else {
-    //      authorTitle = "Kimdur"
-    //  }
+
+    let cardImg = ""
+
+    if(`https://book-service-layer.herokuapp.com/${e.image}`=== Error){
+        cardImg = CardBookImg
+      }else{
+        cardImg = `https://book-service-layer.herokuapp.com/${e.image}`
+      }
 
 
     return(
         <>
             <li className="card-book" onClick={singleBook}>
-                <img className="card-book__img" src={
-              `https://book-service-layer.herokuapp.com/${e?.image}`!== undefined ? `https://book-service-layer.herokuapp.com/${e?.image}`: CardBookImg
-            } alt="" width={164} height={246}/>
+                <img className="card-book__img" src={ cardImg  }
+                 alt="" width={164} height={246}/>
 
                 <h1 className="card-book__title m-0 p-0 mb-2 mt-3 ms-2" >{e.title}</h1>
 

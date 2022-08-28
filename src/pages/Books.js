@@ -7,7 +7,7 @@ import { languages, languagesRus, languagesUzb } from "../languages";
 
 export const Books = () => {
 
-  const {language} = useAuth()
+  const {language, theme} = useAuth()
 
   let boom = {}
 
@@ -20,9 +20,25 @@ export const Books = () => {
   }
   const {period} = boom
 
+  let linkLight = ""
+
+  if(!theme){
+    linkLight = "homepage__nav-link-light"
+  }else{
+    linkLight = "homepage__nav-link"
+  }
+
+  let linkLightActive = ""
+
+  if(!theme){
+    linkLightActive = "active-link-light"
+  }else{
+    linkLightActive = "active-link  "
+  }
+
   return (
     <>
-      <div className="books">
+      <div className={!theme ? "books-light" :"books"}>
       <Header />
       <Hero />
         <div className="homepage__wrapper container">
@@ -34,7 +50,7 @@ export const Books = () => {
               <li className="homepage__nav-item">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active-link " : "homepage__nav-link"
+                    isActive ? linkLightActive : linkLight
                   }
                   to="/books/"
                 >
@@ -45,7 +61,7 @@ export const Books = () => {
               <li className="homepage__nav-item">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active-link  " : "homepage__nav-link"
+                    isActive ? linkLightActive : linkLight
                   }
                   to="/books/jadid-book"
                 >
@@ -56,7 +72,7 @@ export const Books = () => {
               <li className="homepage__nav-item">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active-link  " : "homepage__nav-link"
+                    isActive ? linkLightActive : linkLight
                   }
                   to="/books/soved-book"
                 >
@@ -67,7 +83,7 @@ export const Books = () => {
               <li className="homepage__nav-item">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active-link  " : "homepage__nav-link"
+                    isActive ? linkLightActive : linkLight
                   }
                   to="/books/must-book"
                 >

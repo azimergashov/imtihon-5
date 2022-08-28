@@ -4,6 +4,7 @@ import { useRef } from "react";
 import axios from "axios";
 import { useAuth } from "../../hook/useAuth";
 import { HeaderMenu } from "../../components/Header/HeaderMenu";
+
 export const AddAuthor = () => {
   const { token } = useAuth();
 
@@ -41,15 +42,15 @@ export const AddAuthor = () => {
       .catch((er) => console.log(er));
   };
 
-  const hendleFirstName = (evt) => {
-    if (evt.target.value.length !== 0) {
-      elAuthor.current.textContent = evt.target.value;
-    } else {
-      elAuthor.current.textContent = "author";
-    }
+  // const hendleFirstName = (evt) => {
+  //   if (evt.target.value.length !== 0) {
+  //     elAuthor.current.textContent = evt.target.value;
+  //   } else {
+  //     elAuthor.current.textContent = "author";
+  //   }
 
-    console.log(evt.target.value.length);
-  };
+  //   console.log(evt.target.value);
+  // };
   return (
     <>
       <div className="author__wrapper">
@@ -87,7 +88,7 @@ export const AddAuthor = () => {
                   type="text"
                   required
                   placeholder="First name"
-                  onChange={hendleFirstName}
+                  // onChange={hendleFirstName}
                 />
                 <input
                   ref={elLastName}

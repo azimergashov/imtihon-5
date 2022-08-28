@@ -14,6 +14,14 @@ export const Card = ({ e }) => {
     }
     <Outlet/>
 
+    let cardImg = ""
+    if(`https://book-service-layer.herokuapp.com/${e.image}`=== undefined){
+      cardImg = CardImg
+    }else{
+      cardImg = `https://book-service-layer.herokuapp.com/${e.image}`
+    }
+    console.log(cardImg);
+
   return (
     <>
 
@@ -21,9 +29,7 @@ export const Card = ({ e }) => {
         <div className="card__link" >
           <img
             className="card__img"
-            src={
-              e.image === undefined ? CardImg : `https://book-service-layer.herokuapp.com/${e.image}`
-            }
+            src={cardImg}
             alt=""
             width={174}
             height={132}
