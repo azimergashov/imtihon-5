@@ -25,7 +25,7 @@ export const HomePage = () => {
   },}).then(data => setData(data.data)).catch(er => console.log(er))
   }
 
-  console.log(data);
+
 
   let boom = {}
 
