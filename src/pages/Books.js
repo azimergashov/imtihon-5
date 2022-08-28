@@ -12,6 +12,19 @@ import { useRef, useState } from "react";
 export const Books = () => {
 
   const {language, theme, token} = useAuth()
+  const elSearchBook = useRef("")
+  const [data, setData] = useState({})
+
+  const searchBook= (evt) =>{
+    evt.prevenDefault()
+
+    axios.get(`https://book-service-layer.herokuapp.com/book/search?book=${elSearchBook.current.value}`, {
+      headers:{
+        Authorization: token,
+      }
+    }).then(data => setData(data)).catch(er => alert(er))
+  }
+  console.log(data);
 
   let boom = {}
 
@@ -40,19 +53,7 @@ export const Books = () => {
     linkLightActive = "active-link  "
   }
 
-  const elSearchBook = useRef("")
-  const [data, setData] = useState({})
 
-  const searchBook= (evt) =>{
-    evt.prevenDefault()
-
-    axios.get(`https://book-service-layer.herokuapp.com/book/search?book=${elSearchBook.current.value}`, {
-      headers:{
-        Authorization: token,
-      }
-    }).then(data => setData(data)).catch(er => console.log(er))
-  }
-  console.log(data);
   return (
     <>
       <div className={!theme ? "books-light" :"books"}>
