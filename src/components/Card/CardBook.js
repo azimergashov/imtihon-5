@@ -30,13 +30,13 @@ export const CardBook = ({e}) =>{
     }, [token, e])
 
 
-    let cardImg = ""
+    let cardImg = CardBookImg
 
-    if(`https://book-service-layer.herokuapp.com/${e.image}`=== Error){
-        cardImg = CardBookImg
-      }else{
-        cardImg = `https://book-service-layer.herokuapp.com/${e.image}`
-      }
+    // if(`https://book-service-layer.herokuapp.com/${e.image}`=== Error){
+    //     cardImg = CardBookImg
+    //   }else{
+    //     cardImg = `https://book-service-layer.herokuapp.com/${e.image}`
+    //   }
 
 
     return(

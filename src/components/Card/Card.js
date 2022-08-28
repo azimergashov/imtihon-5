@@ -14,12 +14,12 @@ export const Card = ({ e }) => {
     }
     <Outlet/>
 
-    let cardImg = ""
-    if(`https://book-service-layer.herokuapp.com/${e.image}`=== undefined){
-      cardImg = CardImg
-    }else{
-      cardImg = `https://book-service-layer.herokuapp.com/${e.image}`
-    }
+    let cardImg = CardImg
+    // if(`https://book-service-layer.herokuapp.com/${e.image}`=== undefined){
+    //   cardImg =  CardImg
+    // }else{
+    //   cardImg = `https://book-service-layer.herokuapp.com/${e.image}`
+    // }
 
 
   return (
