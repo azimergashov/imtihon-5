@@ -8,6 +8,7 @@ import Search from "../images/search.png";
 import Qidirish from '../images/qidirish.png'
 import axios from "axios";
 import { useRef, useState } from "react";
+import { CardBook } from "../components/Card";
 
 export const Books = () => {
 
@@ -16,13 +17,14 @@ export const Books = () => {
   const [data, setData] = useState({})
 
   const searchBook= (evt) =>{
-    evt.prevenDefault()
+    evt.preventDefault()
+    console.log(elSearchBook.current.value);
 
-    axios.get(`https://book-service-layer.herokuapp.com/book/search?book=${elSearchBook.current.value}`, {
+    axios.get(`https://book-service-layer.herokuapp.com/author/search?author=${elSearchBook.current.value}`, {
       headers:{
         Authorization: token,
       }
-    }).then(data => setData(data)).catch(er => alert(er))
+    }).then(data => setData(data)).catch(er => alert(er.response.data.message))
   }
   console.log(data);
 
@@ -81,7 +83,14 @@ export const Books = () => {
         </div>
       </div>
     </div>
-        <div className="homepage__wrapper container">
+    {
+      data ? <ul className="homepage__wrapper d-flex justify-content-between container list-unstyled">
+          {
+            data.map((e) => (<CardBook e={e} key={e.id}/>))
+          }
+      </ul> : <>
+
+      <div className="homepage__wrapper container">
           <div className="homepage__div text-center">
             <img src={Kategoriyalar} alt="kategory" width={322} height={34} />
           </div>
@@ -133,7 +142,13 @@ export const Books = () => {
             </ul>
           </nav>
         </div>
+
         <Outlet />
+
+      </>
+    }
+
+
       </div>
     </>
   );
