@@ -8,7 +8,7 @@ import CardBookImg from '../../images/otkir.png'
 
 export const CardBook = ({e}) =>{
 
-    const {setBookId, setIdAuthor, token} = useAuth()
+    const {setBookId, setIdAuthor, token, theme} = useAuth()
     const [data, setData]= useState([])
 
     const navigatee = useNavigate()
@@ -41,7 +41,7 @@ export const CardBook = ({e}) =>{
 
     return(
         <>
-            <li className="card-book" onClick={singleBook}>
+            <li className={!theme ? "card-book card-book-light" :"card-book"} onClick={singleBook}>
                 <img className="card-book__img" src={ cardImg  }
                  alt="" width={164} height={246}/>
 

@@ -6,7 +6,7 @@ import CardImg from '../../images/hamid.jpg'
 
 
 export const Card = ({ e }) => {
-    const {setAuthorId} = useAuth()
+    const {setAuthorId, theme} = useAuth()
     const navigate = useNavigate()
     const singleAuthor =() =>{
         navigate("/single-auth")
@@ -20,12 +20,12 @@ export const Card = ({ e }) => {
     }else{
       cardImg = `https://book-service-layer.herokuapp.com/${e.image}`
     }
-    console.log(cardImg);
+
 
   return (
     <>
 
-      <li className="card" onClick={singleAuthor}>
+      <li className={!theme ? "card card-light" : "card"} onClick={singleAuthor}>
         <div className="card__link" >
           <img
             className="card__img"

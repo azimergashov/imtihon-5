@@ -8,7 +8,7 @@ import { SingleBook } from "./SingleBook";
 import "./singleBook.scss";
 
 export const SingleBookPage = () => {
-    const {token} = useAuth()
+    const {token, theme} = useAuth()
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export const SingleBookPage = () => {
   return (
     <>
 
-      <div className="single-book">
+      <div className={!theme ? "single-book single-book-light" : "single-book"}>
       <Header />
         <div className="container">
 
@@ -47,7 +47,7 @@ export const SingleBookPage = () => {
 
             {
                 data.length &&
-                <ul className="d-flex justify-content-between flex-wrap">
+                <ul className="d-flex justify-content-between flex-wrap list-unstyled">
                     {
                         data.map((e) =>(
                             <CardBook e={e} key={e.id}/>

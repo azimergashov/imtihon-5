@@ -14,7 +14,7 @@ import SingleBookImg from '../../images/single-book.png'
 
 
 export const SingleBook = () => {
-    const {bookId, token, } = useAuth()
+    const {bookId, token,theme } = useAuth()
     const [book, setBook ] = useState([])
     const [data, setData] = useState([])
 
@@ -96,7 +96,7 @@ export const SingleBook = () => {
                 <div className="d-flex align-items-center justify-content-between">
                     <ul className="d-flex align-items-center list-unstyled">
                         <li >
-                            <div className="w-100 text-center mb-2">
+                            <div className={!theme ? "w-100 text-center mb-2 bg-dark" : "w-100 text-center mb-2"}>
                             <img src={qogozKitob} alt="img" width={24} height={24} />
                             </div>
                             <p className="single-book__top-right-text-bottom text-light">Qog’oz kitob</p>
@@ -104,15 +104,15 @@ export const SingleBook = () => {
                         </li>
 
                         <li className="ms-3 ">
-                            <div className="w-100 text-center mb-2">
+                            <div className={!theme ? "w-100 text-center mb-2 bg-dark" : "w-100 text-center mb-2"}>
                              <img src={audioKitob} alt="img" width={24} height={24} />
                             </div>
                             <p className="single-book__top-right-text-bottom text-light">Audiokitob</p>
                             <p className="single-book__top-right-text-bottom m-0 p-0">6:23 soat</p>
                         </li>
 
-                        <li className="ms-3">
-                            <div className="w-100 text-center mb-2">
+                        <li className="ms-3 ">
+                            <div className={!theme ? "w-100 text-center mb-2 bg-dark" : "w-100 text-center mb-2"}>
                               <img src={electronKitob} alt="img" width={24} height={24} />
                             </div>
                             <p className="single-book__top-right-text-bottom text-light">Elektron</p>

@@ -1,0 +1,12 @@
+@import '../../styles/vereble.scss';
+.single-author{
+    background-color: $body-color;
+    min-height: 100vh;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.single-author-light{
+    background-color: $bg-color-light;
+    color: $text-color-light;
+    min-height: 100vh;
+}

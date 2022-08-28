@@ -21,14 +21,14 @@ export const AddBook = () => {
 
     const formData = new FormData();
 
-    formData.append("title", elTitle.current.value);
-    formData.append("page", elPage.current.value);
-    formData.append("year", elYear.current.value);
-    formData.append("price", elPrice.current.value);
-    formData.append("genre_id", elGenreBook.current.value);
-    formData.append("author_id", elAuthorId.current.value);
-    formData.append("description", elDiscription.current.value);
-    formData.append("image ", elImgBook.current.files[0]);
+    formData.append("title", elTitle.current?.value);
+    formData.append("page", elPage.current?.value);
+    formData.append("year", elYear.current?.value);
+    formData.append("price", elPrice.current?.value);
+    formData.append("genre_id", elGenreBook.current?.value);
+    formData.append("author_id", elAuthorId.current?.value);
+    formData.append("description", elDiscription.current?.value);
+    formData.append("image ", elImgBook.current?.files[0]);
 
     axios
       .post("https://book-service-layer.herokuapp.com/book", formData, {
@@ -40,22 +40,19 @@ export const AddBook = () => {
       .catch((er) => console.log(er));
   };
 
-  // const hendleFirstName = (evt) => {
-  //   if (evt.target.value.length !== 0) {
-  //     elAuthor.current.textContent = evt.target.value;
-  //   } else {
-  //     elAuthor.current.textContent = "book";
-  //   }
-  // };
+  const hendleFirstName = (evt) => {
+    if (evt.target.value.length !== 0) {
+      elAuthor.current.textContent = evt.target.value;
+    } else {
+      elAuthor.current.textContent = "book";
+    }
+  };
   return (
     <>
       <div className="author__wrapper">
         <div>
-          <div className="container ">
-            <form
-              onSubmit={hendleBook}
-              className="form d-flex align-items-center "
-            >
+          <div className="container d-flex align-items-center">
+
               <div className="w-100 author__left pe-5">
                 <img src={addAuthorImg} alt="" width={350} height={367} />
                 <h2 className="mb-3 mt-3">
@@ -76,7 +73,10 @@ export const AddBook = () => {
                     <h1>Add book</h1>
                     <HeaderMenu/>
                 </div>
-
+                <form
+              onSubmit={hendleBook}
+              className="form  "
+            >
                 <input
                   ref={elTitle}
                   className="form-control mb-3"
@@ -84,7 +84,7 @@ export const AddBook = () => {
                   type="text"
                   required
                   placeholder="Title"
-                  // onChange={hendleFirstName}
+                  onChange={hendleFirstName}
                 />
                 <input
                   ref={elPage}
@@ -109,16 +109,8 @@ export const AddBook = () => {
                   type="number"
                   placeholder="Price"
                 />
-                <input
+                 <select
                   ref={elGenreBook}
-                  className="form-control mb-3"
-                  name="author_id"
-                  type="number"
-                  required
-                  placeholder="Author"
-                />
-                <select
-                  ref={elAuthorId}
                   className="form-select mb-3 "
                   name="genre_id"
                   required
@@ -128,6 +120,15 @@ export const AddBook = () => {
                   <option value="3">Soved davri</option>
                   <option value="4">Mustaqillik davri</option>
                 </select>
+                <input
+                  ref={ elAuthorId}
+                  className="form-control mb-3"
+                  name="author_id"
+                  type="number"
+                  required
+                  placeholder="Author"
+                />
+
                 <textarea
                   ref={elDiscription}
                   className="form-control mb-3 author__bio"
@@ -139,8 +140,9 @@ export const AddBook = () => {
                 <button type="submit " className="author-btn w-100 mt-4">
                   Create
                 </button>
+                </form>
               </div>
-            </form>
+
           </div>
         </div>
       </div>

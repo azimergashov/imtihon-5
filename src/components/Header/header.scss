@@ -72,9 +72,17 @@
 }
 
 .header__select-item:hover{
+    background-color: $text-color-light;
+    cursor: pointer;
+}
+
+.header__select-item-light{
+    border-bottom: solid 1px $body-color;
+    padding: 10px 50px;
+}
+.header__select-item-light:hover{
     background-color: $bg-color-light;
     cursor: pointer;
-
 }
 
 .header__select-bg{

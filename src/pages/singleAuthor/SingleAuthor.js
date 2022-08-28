@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { useAuth } from "../../hook/useAuth"
 import axios from 'axios'
 import { CardSingleAuth, Header } from "../../components"
-import styled from "styled-components"
 import { Outlet } from "react-router-dom"
+import './singleAuth.scss'
 
 export const SingleAuthor = () => {
     const [data, setData] = useState([])
 
-    const {token, authorId} = useAuth()
+    const {token, authorId, theme} = useAuth()
 
     useEffect(() =>{
         axios.get(`https://book-service-layer.herokuapp.com/author/authorId/${authorId}` , {
@@ -20,9 +20,10 @@ export const SingleAuthor = () => {
     }, [token, authorId])
 
 
+    console.log(token);
 
     return(
-        < Wrapper >
+        < div className={!theme ? "single-author-light" : "single-author"} >
 
         <Header/>
 
@@ -31,14 +32,7 @@ export const SingleAuthor = () => {
             data &&
                 <CardSingleAuth data={data}/>
           }
-        </Wrapper>
+        </div>
 
     )
 }
-
-
-
-const Wrapper = styled.div`
-    min-height: 100vh;
-    background-color: #000000;
-`

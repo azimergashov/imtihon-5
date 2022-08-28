@@ -9,7 +9,7 @@ import headerIcon from "../../images/header-icon.png";
 
 
 export const HeaderMenu = () => {
-  const { token, language, menu, setMenu } = useAuth();
+  const { token, language, menu, setMenu, theme } = useAuth();
   const [data, setData] = useState([]);
   let boom = {};
 
@@ -112,16 +112,16 @@ export const HeaderMenu = () => {
               </button>
             </div>
             <ul className="list-unstyled m-0 p-0">
-              <li onClick={homeOpen} className="header__select-item">
+              <li onClick={homeOpen} className={!theme ? "header__select-item-light" : "header__select-item"}>
                 {home}
               </li>
-              <li onClick={addAuthorOpen} className="header__select-item">
+              <li onClick={addAuthorOpen} className={!theme ? "header__select-item-light" : "header__select-item"}>
                 {addAuthor}
               </li>
-              <li onClick={addBookOpen} className="header__select-item">
+              <li onClick={addBookOpen} className={!theme ? "header__select-item-light" : "header__select-item"}>
                 {addBook}
               </li>
-              <li onClick={profileOpen} className="header__select-item">
+              <li onClick={profileOpen} className={!theme ? "header__select-item-light" : "header__select-item"}>
                 {settings}
               </li>
             </ul>

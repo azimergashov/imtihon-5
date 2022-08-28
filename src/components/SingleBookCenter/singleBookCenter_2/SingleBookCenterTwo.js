@@ -1,7 +1,10 @@
 import "./singleBookCenterTwo.scss";
 import SingleBookCenter from '../../../images/1.png';
+import { useAuth } from "../../../hook/useAuth";
 
 export const SingleBookCenterTwo = () => {
+
+  const {theme} = useAuth()
   return (
     <>
       <div className="single-book-center-two d-flex  justify-content-between">
@@ -12,7 +15,7 @@ export const SingleBookCenterTwo = () => {
             width={60}
             height={60}
           />
-          <p className="single-book-center-two__text">
+          <p className={!theme ? 'single-book-center-two__text-light' : 'single-book-center-two__text'}>
             Inson bolasi ne kunlarni ko‘rmaydi?! Har bir odam o‘z g‘ami bilan
             bo‘lsa, hayotdan ko‘z yumib ketganlarga umr bo‘yi motam tutib o‘tsa,
             bu moddiy olam shu kunlarga yetolarmidi? Hayot to‘lqini ojizlarni
@@ -28,7 +31,7 @@ export const SingleBookCenterTwo = () => {
             width={60}
             height={60}
           />
-          <p className="single-book-center-two__text">
+          <p className={!theme ? 'single-book-center-two__text-light' : 'single-book-center-two__text'}>
           Yer kurrasida chumolidek mehnat qilayotganlardan ko‘ra, tuproq tagida yotganlar ko‘p. Yer qatlami odam suyaklariga to‘lib ketgan.
           </p>
         </div>

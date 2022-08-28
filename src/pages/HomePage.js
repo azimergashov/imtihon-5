@@ -9,7 +9,6 @@ export const HomePage = () => {
 
   const {language, theme}= useAuth()
 
-
   let boom = {}
 
   if(language === 'eng'){
@@ -36,6 +35,7 @@ export const HomePage = () => {
   }else{
     linkLightActive = "active-link  "
   }
+  console.log(theme);
 
   return (
     <>

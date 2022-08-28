@@ -18,6 +18,7 @@ export const SettingsPage = () => {
         window.localStorage.setItem("theme", JSON.stringify(theme))
         setLanguage(elSelect.current.value);
         window.localStorage.setItem("language", JSON.stringify(elSelect.current.value))
+        window.location.reload(true)
     }
 
     let boom = {}
@@ -57,7 +58,6 @@ export const SettingsPage = () => {
         window.localStorage.removeItem('bg-color')
         window.localStorage.removeItem('text-color')
         window.location.reload(true)
-
     }
 
 
@@ -93,7 +93,7 @@ export const SettingsPage = () => {
 
         <div>
             <p className="profile__text-name m-0 p-0 mb-2" >{theme ? dark : light  }</p>
-            <input defaultChecked={theme} onChange={() =>  setChange(!theme)}  className="form-check-input " type="checkbox" />
+            <input defaultChecked={theme} onChange={() =>  setTheme(!theme)}  className="form-check-input " type="checkbox" />
         </div>
 
         <div className="profile__form-bottom mt-5">
