@@ -20,11 +20,7 @@ export const Header = () => {
 
   const {home, books ,article} = boom
 
-  const logout = () =>{
-    window.localStorage.removeItem('token')
-    navigate('/')
-    window.location.reload(true)
-  }
+
 
   let linkLight = ""
 
@@ -91,7 +87,7 @@ export const Header = () => {
             </nav>
 
             <div className="d-flex align-content-center justify-content-between">
-                <button onClick={logout} className="btn btn-primary me-3">Logout</button>
+
                 <HeaderMenu/>
             </div>
           </div>

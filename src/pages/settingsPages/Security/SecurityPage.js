@@ -12,7 +12,6 @@ export const SecurityPage = () => {
   const elConfimPassword = useRef();
   const { token, language } = useAuth();
 
-  const [data, setData] = useState([]);
 
   const securityForm = (evt) => {
     evt.preventDefault();
@@ -26,18 +25,19 @@ export const SecurityPage = () => {
     // console.log(elEmail.current.value);
     // console.log(elPassword.current.value);
     // console.log(elNewPassword.current.value);
-    const headers = {
-      Authorization: token,
-    };
+
     const accept = {
-      email: elEmail.current.value,
-      currentPassword: elPassword.current.value,
-      newPassword: elNewPassword.current.value,
+      "email": elEmail.current.value,
+      "currentPassword": elPassword.current.value,
+      "newPassword": elNewPassword.current.value,
     };
     axios
       .put("https://book-service-layer.herokuapp.com/user/security", accept, {
-        headers,
-      })
+        headers: {
+          Authorization: token,
+        }
+      }
+      )
       .then((data) => console.log(data.data))
       .catch((er) => console.log(er));
   };

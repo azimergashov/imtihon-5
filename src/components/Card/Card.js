@@ -25,7 +25,7 @@ export const Card = ({ e }) => {
   return (
     <>
 
-      <li className={!theme ? "card card-light" : "card"} onClick={singleAuthor}>
+      <li className={!theme ? "card card-light" : "card"}  onClick={singleAuthor}>
         <div className="card__link" >
           <img
             className="card__img"

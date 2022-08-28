@@ -21,7 +21,7 @@ export const AddAuthor = () => {
 
   const hendleAuther = (evt) => {
     evt.preventDefault()
-  //   console.log(elFirstName.current.value);
+  // console.log(elFirstName.current.value);
   // console.log(elLastName.current.value);
   // console.log(elBirthDay.current.value);
   // console.log(elDeadDay.current.value);
@@ -42,11 +42,12 @@ export const AddAuthor = () => {
 
     axios.post(`https://book-service-layer.herokuapp.com/author`, formData, {
         headers: {
-          'Accept': 'application/json',
-          Authorization: token,
+          Authorization: token.token,
         }
       }).then((data) => console.log(data)).catch((er) => console.log(er));
   };
+
+
 
   const hendleFirstName = (evt) => {
     if (evt.target.value.length !== 0) {

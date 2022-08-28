@@ -75,6 +75,12 @@ export const HeaderMenu = () => {
     return () => window.removeEventListener("keyup", closeMenu);
   }, [menu, setMenu]);
 
+  const logout = () =>{
+    window.localStorage.removeItem('token')
+    navigate('/')
+    window.location.reload(true)
+  }
+
   return (
     <div>
       <div className="d-flex align-items-center">
@@ -124,6 +130,7 @@ export const HeaderMenu = () => {
               <li onClick={profileOpen} className={!theme ? "header__select-item-light" : "header__select-item"}>
                 {settings}
               </li>
+              <li ><button style={{borderRadius: "0"}} onClick={logout} className="btn btn-primary me-3 w-100  ">Logout</button></li>
             </ul>
           </div>
         </div>

@@ -10,11 +10,13 @@
   background-color: #191919;
   margin-top: 10px;
   color: rgba(255, 255, 255, 0.6);
+  background-color: $body-color;
 }
-.card{
+.card-light{
   background-color: $card-color-light;
   color: $text-color-light;
 }
+
 .card__link {
   padding: 15px;
   text-decoration: none;
