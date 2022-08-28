@@ -40,13 +40,13 @@ export const AddBook = () => {
       .catch((er) => console.log(er));
   };
 
-  const hendleFirstName = (evt) => {
-    if (evt.target.value.length !== 0) {
-      elAuthor.current.textContent = evt.target.value;
-    } else {
-      elAuthor.current.textContent = "book";
-    }
-  };
+  // const hendleFirstName = (evt) => {
+  //   if (evt.target.value.length !== 0) {
+  //     elAuthor.current.textContent = evt.target.value;
+  //   } else {
+  //     elAuthor.current.textContent = "book";
+  //   }
+  // };
   return (
     <>
       <div className="author__wrapper">
@@ -84,7 +84,7 @@ export const AddBook = () => {
                   type="text"
                   required
                   placeholder="Title"
-                  onChange={hendleFirstName}
+                  // onChange={hendleFirstName}
                 />
                 <input
                   ref={elPage}

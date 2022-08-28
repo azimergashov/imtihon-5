@@ -18,8 +18,19 @@ export const AddAuthor = () => {
   const elBio = useRef("");
   const elImg = useRef("");
 
+
+
+
   const hendleAuther = (evt) => {
-    evt.preventDefault();
+    evt.preventDefault()
+  //   console.log(elFirstName.current.value);
+  // console.log(elLastName.current.value);
+  // console.log(elBirthDay.current.value);
+  // console.log(elDeadDay.current.value);
+  // console.log(elCountry.current.value);
+  // console.log(elGenre.current.value);
+  // console.log(elBio.current.value);
+  // console.log(elImg.current.files);
 
     const formData = new FormData();
 
@@ -32,8 +43,20 @@ export const AddAuthor = () => {
     formData.append("bio", elBio.current.value);
     formData.append("image ", elImg.current.files[0]);
 
-    axios
-      .post("https://book-service-layer.herokuapp.com/author", formData, {
+    // let accept = {
+    //   "first_name": elFirstName.current.value,
+    //   "last_name": elLastName.current.value,
+    //   "date_of_birth": elBirthDay.current.value,
+    //   "date_of_death": elDeadDay.current.value,
+    //   "country": elCountry.current.value,
+    //   "genre_id": elGenre.current.value,
+    //   "bio": elBio.current.value,
+    //   "image ": elImg.current.files[0],
+
+    // }
+
+
+    axios.post("https://book-service-layer.herokuapp.com/author", formData, {
         headers: {
           Authorization: token,
         },
@@ -69,7 +92,6 @@ export const AddAuthor = () => {
                 <input
                   ref={elImg}
                   className="form-control form-control-lg"
-                  name="image"
                   type="file"
                   required
                 />
@@ -84,7 +106,6 @@ export const AddAuthor = () => {
                 <input
                   ref={elFirstName}
                   className="form-control mb-3"
-                  name="first_name"
                   type="text"
                   required
                   placeholder="First name"
@@ -93,7 +114,6 @@ export const AddAuthor = () => {
                 <input
                   ref={elLastName}
                   className="form-control mb-3"
-                  name="last_name"
                   type="text"
                   required
                   placeholder="Last name"
@@ -101,7 +121,6 @@ export const AddAuthor = () => {
                 <input
                   ref={elBirthDay}
                   className="form-control mb-3"
-                  name="date_of_birth"
                   type="number"
                   required
                   placeholder="Date of birth year"
@@ -109,14 +128,12 @@ export const AddAuthor = () => {
                 <input
                   ref={elDeadDay}
                   className="form-control mb-3"
-                  name="date_of_death"
                   type="number"
                   placeholder="Date of death year"
                 />
                 <input
                   ref={elCountry}
                   className="form-control mb-3"
-                  name="country"
                   type="text"
                   required
                   placeholder="Country"
@@ -124,7 +141,6 @@ export const AddAuthor = () => {
                 <select
                   ref={elGenre}
                   className="form-select mb-3 "
-                  name="genre_id"
                   required
                 >
                   <option value="1">Temuriylar davir</option>
@@ -135,7 +151,6 @@ export const AddAuthor = () => {
                 <textarea
                   ref={elBio}
                   className="form-control mb-3 author__bio"
-                  name="bio"
                   placeholder="Bio"
                   required
                 ></textarea>
