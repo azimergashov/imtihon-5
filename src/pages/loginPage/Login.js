@@ -25,7 +25,7 @@ export const Login = () => {
     axios
       .post("https://book-service-layer.herokuapp.com/user/login", accept)
       .then((data) => setToken(data.data.token), navigate('/'))
-      .catch((er) => console.log(er));
+      .catch((er) => alert(er.response.data.message));
 
   };
 

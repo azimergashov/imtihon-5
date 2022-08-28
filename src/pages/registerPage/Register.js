@@ -28,8 +28,8 @@ export const Register = () => {
 
     axios
       .post("https://book-service-layer.herokuapp.com/user/register", formData)
-      .then((data) => setToken(data.data))
-      .catch((er) => console.log(er));
+      .then((data) => setToken(data.data.token))
+      .catch((er) => alert(er.response.data.message));
   };
 
   const handleLanguage = (evt) =>{
