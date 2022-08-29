@@ -16,21 +16,21 @@ export const Books = () => {
 
 
 
-  // const elSearchBook = useRef("")
-  // const [data, setData] = useState([])
+  const elSearchBook = useRef("")
+  const [data, setData] = useState([])
 
-  // const searchBook= (evt) =>{
-  //   evt.preventDefault()
-  //   console.log(elSearchBook.current.value);
+  const searchBook= (evt) =>{
+    evt.preventDefault()
+    console.log(elSearchBook.current.value);
 
-  //   axios.get(`https://book-service-layer.herokuapp.com/author/search?author=${elSearchBook.current.value}`, {
-  //     headers:{
-  //       Authorization: token,
-  //     }
-  //   }).then(data => setData(data)).catch(er => alert(er.response.data.message))
-  //   console.log(data);
+    axios.get(`https://book-service-layer.herokuapp.com/book/search?book=${elSearchBook.current.value}`, {
+      headers:{
+        Authorization: token,
+      }
+    }).then(data => console.log(data.data)).catch(er => alert(er.response.data.message))
 
-  // }
+
+  }
 
   let boom = {}
 
@@ -67,7 +67,7 @@ export const Books = () => {
       <div className={!theme ? "hero-light" :"hero"}>
       <div className="ps-5 ">
         <div className=" hero__wrapper container ">
-          <form  className={!theme ? "hero__search text-center hero__search-light" : "hero__search text-center"}>
+          <form onSubmit={searchBook} className={!theme ? "hero__search text-center hero__search-light" : "hero__search text-center"}>
             <img className="mb-3" src={Qidirish} alt="qidirish" width={109} height={34}/>
             <div className="hero__form-div">
               <input
@@ -87,12 +87,12 @@ export const Books = () => {
         </div>
       </div>
     </div>
-
-      {/* data ? <ul className="homepage__wrapper d-flex justify-content-between container list-unstyled">
-        {
-          ( (<CardBook e={data} key={data.id}/>))
-        }
-      </ul> :  */}
+    {
+      data.length ? <ul className="homepage__wrapper d-flex justify-content-between container list-unstyled">
+          {
+            data.map((e) => (<CardBook e={e} key={e.id}/>))
+          }
+      </ul> : <>
 
       <div className="homepage__wrapper container">
           <div className="homepage__div text-center">
@@ -150,7 +150,7 @@ export const Books = () => {
         <Outlet />
 
 
-
+        </> }
 
 
       </div>
