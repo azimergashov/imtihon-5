@@ -18,7 +18,7 @@ export const SettingsPage = () => {
         window.localStorage.setItem("theme", JSON.stringify(theme))
         setLanguage(elSelect.current.value);
         window.localStorage.setItem("language", JSON.stringify(elSelect.current.value))
-        window.location.reload(true)
+        // window.location.reload(true)
     }
 
     let boom = {}
