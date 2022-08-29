@@ -78,7 +78,7 @@ export const Books = () => {
               />
               <button
                 className="btn btn-warning d-flex align-items-center ms-3"
-                // type="submit"
+                type="submit"
               >
                 <img src={Search} alt="" /> Izlash
               </button>
